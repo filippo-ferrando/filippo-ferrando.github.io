@@ -28,12 +28,12 @@ Moreover, it is relatively difficult not to find online help or some kind of hel
 Given the intent of this guide I'm going to recommend what (in my opinion) are good distros to start approaching this type of system.
 - [Ubuntu](https://www.ubuntu-it.org/)
 - [Pop_os!](https://pop.system76.com/)
-- [Elementary Os](https://elementary.io/)<br>
+- [Elementary Os](https://elementary.io/)
 
 For anyone who would like to try something more "fancy" I can suggest these:
 - [Endeavour Os](https://endeavouros.com/)
 - [Nobara Project](https://nobaraproject.org/)
-- [Void Linux](https://voidlinux.org/)<br>
+- [Void Linux](https://voidlinux.org/)
 
 These last 3 distros leave them alone unless you have intermediate - advanced knowledge, it might just cause you stress and living ache
 
