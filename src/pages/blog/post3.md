@@ -21,22 +21,19 @@ Estimate Time: 15-20 minutes
 
 go to the balena [download page](https://www.balena.io/etcher/) and retrive the
 suitable version for your needs.
-
-![1](https://github.com/filippo-ferrando/howToFlashARaspberry/blob/master/assets/1.png)
+<!-- ![1](https://github.com/filippo-ferrando/howToFlashARaspberry/blob/master/assets/1.png) -->
 
 ## Download the raspbian ISO
 
 for this guide we'll use the lite version 'cause we don't need a GUI
-
-![2](https://github.com/filippo-ferrando/howToFlashARaspberry/blob/master/assets/2.png)
+<!-- ![2](https://github.com/filippo-ferrando/howToFlashARaspberry/blob/master/assets/2.png) -->
 
 ## Now we have all we need!
 
 Take you micro sd and insert it into the pc.
 
 Then open balenaEtcher and select your iso image.
-
-![3](https://github.com/filippo-ferrando/howToFlashARaspberry/blob/master/assets/3.png)
+<!-- ![3](https://github.com/filippo-ferrando/howToFlashARaspberry/blob/master/assets/3.png) -->
 
 ##### Then select the media you want to flash and click "Flash!"
 
@@ -96,8 +93,7 @@ sudo raspi-config
 ```
 
 This will prompt a menu from which we can change some important settings:
-
-![4](https://github.com/filippo-ferrando/howToFlashARaspberry/blob/master/assets/4.png)
+<!-- ![4](https://github.com/filippo-ferrando/howToFlashARaspberry/blob/master/assets/4.png) -->
 
 1. hostname --> the device name on the network
 
