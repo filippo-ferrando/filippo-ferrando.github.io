@@ -2,7 +2,7 @@
 layout: "../../layouts/ProjectLayout.astro"
 title: "Hello World!"
 description: "First post"
-pubDate: "Jan 14 2023"
+pubDate: "Jan 1 2023"
 heroImage: "/post_img.webp"
 ---
 
