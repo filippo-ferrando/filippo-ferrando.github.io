@@ -2,7 +2,7 @@
 layout: "../../layouts/ProjectLayout.astro"
 title: "Math Bullet"
 description: "Me my team realized a game to make more fun and inclusive rehabilitation activities for people with multiple sclerosis."
-pubDate: "Jan 14 2023"
+pubDate: "Apr 05 2021"
 heroImage: "/project_image/project_img2.png"
 badge: "School"
 ---

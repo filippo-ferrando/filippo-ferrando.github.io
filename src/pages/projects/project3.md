@@ -2,7 +2,7 @@
 layout: "../../layouts/ProjectLayout.astro"
 title: "RFID reader with a Raspberry Pi"
 description: "My classmates and I builded a system for school attendance that would check if the student was present on the database and would therefore register everyone’s entries and exits."
-pubDate: "Jan 14 2023"
+pubDate: "Mar 12 2022"
 heroImage: "/project_image/project_img3.png"
 badge: "School"
 ---

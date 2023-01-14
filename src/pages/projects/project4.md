@@ -2,7 +2,7 @@
 layout: "../../layouts/ProjectLayout.astro"
 title: "Indoor locator via AI and WiFi"
 description: "Final school project"
-pubDate: "Jan 14 2023"
+pubDate: "Jun 16 2022"
 heroImage: "/project_image/project_img4.png"
 badge: "School"
 ---

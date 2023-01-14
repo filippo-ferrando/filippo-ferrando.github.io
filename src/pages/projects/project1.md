@@ -2,7 +2,7 @@
 layout: "../../layouts/ProjectLayout.astro"
 title: "BPSC smart blockchain"
 description: "This is an alternative type of blockchain that don't use PoW or PoS algorithm"
-pubDate: "Jan 14 2023"
+pubDate: "Jul 24 2022"
 heroImage: "/project_image/project_img1.png"
 badge: ""
 ---
