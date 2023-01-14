@@ -1,0 +1,100 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+---
+
+<BaseLayout title = "Resume">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">About Myself</div>
+  </div>
+
+  <div class="mb-10 text-justify">
+    Student at UniTo<br><br>
+    I'm Filippo Ferrando, my strengths are definitely networking, programming and usage | management of unix-based systems.<br><br>
+
+    I consider myself a stubborn person but always ready to learn something new, independent and capable of solving problems of various kinds.<br><br>
+
+    I have different passions such as Karting where I have learned many notions of mechanics and driving, I have been playing the guitar since I was very young and I am very interested in the field of study I am following now, the topics that attract me most are Blockchain technologies, IoT and cybersecurity.<br><br>
+
+    I think that working in this field is not reduced only to carrying out the work itself, I believe instead that it is a way of approaching life; this sector requires constant updating of one's skills to always keep up and not everyone is willing to follow such a path. On my Github you can find more technical information about my skills. 
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Education</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title="Degree in Computer Science"
+      subtitle="2022 to [Current] at University of Turin, Turin, Italy"
+    />
+    <TimeLineElement
+      title="High School Diploma"
+      subtitle="2017 to 2022 at ITIS M. Delpozzo, Cuneo, Italy"
+    />
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Experience</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="System Engineer at Fabrax Informatica"
+      subtitle="From 01 May 2021 to 01 Oct 2021 at Cuneo, Italy"
+      desc=""
+    />
+    <TimeLineElement
+      title="Webmaster"
+      subtitle="From 2018 to [Current] at Scuolorando, Cuneo, Italy"
+      desc=""
+    />
+    <TimeLineElement
+      title="Homework Helper"
+      subtitle="From 2020 to 2021 at Scuolorando, Cuneo, Italy"
+      desc=""
+    />
+  </div>
+<!--
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Certifications</div>
+  </div>
+
+  <ul class="list-disc mx-6 mb-10 grid gap-2">
+    <li>
+      <a href="" target="_blank"> </a>
+    </li>
+    <li>
+      <a href="" target="_blank"> </a>
+    </li>
+  </ul>
+-->
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Skills</div>
+  </div>
+
+  <ul class="list-disc md:columns-5 columns-2 mx-6">
+    <li>Italian (Native)</li>
+    <li>English (C1)</li>
+    <li>French (A2)</li>
+    <li>JavaScript</li>
+    <li>C</li>
+    <li>PHP</li>
+    <li>Python</li>
+    <li>Github</li>
+    <li>Linux</li>
+    <li>Docker</li>
+    <li>Ansible</li>
+    <li>Kubernetes</li>
+    <li>Networking stack</li>
+    <li>SQLite</li>
+    <li>MySQL</li>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>Git</li>
+    <li>Node.js</li>
+    <li>Astro</li>
+    <li>Wordpress</li>
+    <li>Trello</li>
+  </ul>
+</BaseLayout>
