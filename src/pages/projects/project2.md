@@ -4,7 +4,7 @@ title: "Math Bullet"
 description: "Me my team realized a game to make more fun and inclusive rehabilitation activities for people with multiple sclerosis."
 pubDate: "Apr 05 2021"
 heroImage: "/project_image/project_img2.png"
-badge: "School"
+badge: "Open Source"
 ---
 
 ## Our game
