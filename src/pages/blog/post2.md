@@ -1,7 +1,7 @@
 ---
 layout: "../../layouts/ProjectLayout.astro"
 title: "Switching to Linux: why?"
-description: "advantages and disadvantages (very general) of a unix-based system"
+description: "Advantages and disadvantages (very general) of a unix-based system"
 pubDate: "Jan 14 2023"
 heroImage: "/post_image/post_img2.jpg"
 ---
