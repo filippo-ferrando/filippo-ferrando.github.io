@@ -6,7 +6,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
     <script>
 			let rnd = Math.floor(Math.random() * (5 + 1));
-			let chosen = "../public/404-image/" + rnd + ".gif";
+			let chosen = "/404-image/" + rnd + ".gif";
             document.getElementById("iframe-404").src = chosen;
     </script>
     <div class="pb-12 mt-5">
