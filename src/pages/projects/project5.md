@@ -40,7 +40,7 @@ Let's make an example with the H:
 (86,23,54),(12,53,84),(132,22,210)
 ```
 
-** Do the same thing for all the letter **
+**Do the same thing for all the letter**
 
 ```
 [(86,23,54),(12,53,84),(132,22,210),(61,19,248),
