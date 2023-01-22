@@ -1,13 +1,13 @@
 ---
 layout: "../../layouts/ProjectLayout.astro"
 title: "Selfhosting | My experience pt.1"
-description: "Series of n articles in which I will show my homelab with components and whatnot, from the hardware part to the software part."
+description: "Series of n articles in which I will show my homelab, from the hardware to the software."
 pubDate: "Jan 22 2023"
 heroImage: "/post_image/post_img5.webp"
 ---
 # Selfhosting | My experience pt.1
 
-Series of n articles in which I will show my homelab with components and whatnot, from the hardware part to the software part.
+Series of n articles in which I will show my homelab, from the hardware to the software.
 
 ## Hardware
 
