@@ -17,6 +17,18 @@ Over time I have salvaged here and there almost everything I have now, starting 
 
 To complete the setup I included a Raspberry Pi that acts as a sd-blocker with Pi-Hole and could not miss a Mikrotik hAp to generate a secondary wifi network starting from the main one at my home
 
+In short the components are these:
+ - Raspberry pi 3b
+ - Mikrotik hAp
+ - Server (Intel i7 4790, 16gbram, 4tb main raid, 1tb second raid)
+ - Hp ProCruve 2510 gigabit switch
+ - 3com 10/100 switch
+ - tp-link 5 port gigabit switch
+ - 24 port patch panel
+ - 2x 200 Aerocool fan
+ - Aliexpress 12v fan controller
+
+
 I leave some pictures of how it came to the whole
 
 ![front](https://gist.githubusercontent.com/filippo-ferrando/aa4de30d03f228cd72f3f62ac6a56abf/raw/492866425e8da4c0833e9df5a30797803ebd391c/front.jpg)
