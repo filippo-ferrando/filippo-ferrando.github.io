@@ -1,6 +1,6 @@
 ---
 layout: "../../layouts/ProjectLayout.astro"
-title: "Selfhosting"
+title: "Selfhosting #1"
 description: "Series of n articles in which I will show my homelab, from the hardware to the software."
 pubDate: "Jan 22 2023"
 heroImage: "/post_image/post_img5.webp"
