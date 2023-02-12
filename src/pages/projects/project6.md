@@ -21,6 +21,8 @@ At the moment the html file is absolutely rubbish, the implementation has only t
 
 Inside this [repo](https://github.com/filippo-ferrando/quelli-silenziosi) you can find all the code used, from the webserver to the HTML
 
+### Screenshot of the homepage with an example
+
 ![index](https://gist.github.com/filippo-ferrando/bb3e9bcb958f82265936250a1e998309/raw/2c225cccd9b74d941e13e6a157db96d3dd615ff5/guestbook.png)
 
 
