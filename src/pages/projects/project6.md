@@ -4,7 +4,7 @@ title: "My house offline guestbook"
 description: "Basic Guestbook with flask"
 pubDate: "Feb 12 2023"
 heroImage: "/project_image/project_img6.jpg"
-badge: "House"
+badge: "1-night project"
 ---
 
 # Guestbook with Python3 | Flask
