@@ -3,7 +3,7 @@ layout: "../../layouts/ProjectLayout.astro"
 title: "Funny sorting algorithm"
 description: "Stupid post for a stupid algorithm"
 pubDate: "Feb 12 2023"
-heroImage: "/post_image/post_img9.png"
+heroImage: "/post_image/post_img9.webp"
 ---
 
 # Bogosort
