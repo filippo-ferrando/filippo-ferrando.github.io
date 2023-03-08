@@ -4,6 +4,7 @@ title: "Garbage collector in C"
 description: "Basic garbage-collector implementation written in C language"
 pubDate: "Mar 08 2023"
 heroImage: "/project_image/project_img7.webp"
+badge: "learning project"
 ---
 
 # Garbage Collector in C
