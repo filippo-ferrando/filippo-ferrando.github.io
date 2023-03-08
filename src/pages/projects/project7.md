@@ -18,14 +18,13 @@ Overall, garbage collectors are an essential component of modern programming lan
 
 ## How a garbage collector works
 Here is a simplified explanation of how a garbage collector works:
+- Allocation: When a new object is created, the garbage collector allocates memory for it in the heap, which is a region of memory dedicated to dynamic memory allocation.
 
-    Allocation: When a new object is created, the garbage collector allocates memory for it in the heap, which is a region of memory dedicated to dynamic memory allocation.
+- Reference Counting: The garbage collector uses reference counting to keep track of which objects are being used by the program. Reference counting involves tracking the number of references to each object. An object is considered in use if its reference count is greater than zero.
 
-    Reference Counting: The garbage collector uses reference counting to keep track of which objects are being used by the program. Reference counting involves tracking the number of references to each object. An object is considered in use if its reference count is greater than zero.
+- Mark and Sweep: The garbage collector periodically performs a mark and sweep operation to identify and free memory that is no longer in use. During the mark phase, the garbage collector traverses the heap, starting from the root set (which includes all objects that are directly accessible from the program). The garbage collector marks each object that is still in use by setting a flag on it. In the sweep phase, the garbage collector frees all memory that was not marked during the mark phase.
 
-    Mark and Sweep: The garbage collector periodically performs a mark and sweep operation to identify and free memory that is no longer in use. During the mark phase, the garbage collector traverses the heap, starting from the root set (which includes all objects that are directly accessible from the program). The garbage collector marks each object that is still in use by setting a flag on it. In the sweep phase, the garbage collector frees all memory that was not marked during the mark phase.
-
-    Compaction: To optimize memory usage, some garbage collectors also perform a compaction phase. During this phase, the garbage collector moves live objects closer together in memory, which reduces fragmentation and makes more efficient use of available memory.
+- Compaction: To optimize memory usage, some garbage collectors also perform a compaction phase. During this phase, the garbage collector moves live objects closer together in memory, which reduces fragmentation and makes more efficient use of available memory.
 
 The exact implementation of a garbage collector can vary depending on the programming language and the specific garbage collector algorithm used. Some garbage collectors use more sophisticated techniques, such as generational garbage collection or concurrent garbage collection, to further optimize performance.
 
