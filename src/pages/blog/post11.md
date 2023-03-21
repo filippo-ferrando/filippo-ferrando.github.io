@@ -47,3 +47,7 @@ For example, if you're running a gaming system, you may want to consider using t
 Regardless of which kernel you choose, make sure to keep it up-to-date with the latest security patches and updates. This will help keep your system running smoothly and avoid any potential security vulnerabilities.
 
 In conclusion, choosing the right kernel for your Linux system requires careful consideration of your specific needs and preferences. By weighing the pros and cons of each option and taking into account your entire system, you can make an informed decision that will help you get the most out of your Linux experience.
+
+#### Authors
+
+- [@filippo-ferrando](https://www.github.com/filippo-ferrando)

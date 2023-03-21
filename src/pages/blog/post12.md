@@ -44,3 +44,7 @@ Fish Shell's configuration system is easy to use and flexible. Users can customi
 Fish Shell has an active and supportive community of users and developers. The community provides support, documentation, and plugins to help users get the most out of Fish Shell. The community also contributes to the development of Fish Shell, ensuring that it remains up-to-date and relevant. Fish Shell's community is friendly and welcoming, making it easy for new users to get started with the shell.
 
 Overall, Fish Shell is a powerful and user-friendly shell that offers many features that make it a great alternative to other shells. Its auto-suggestion, syntax highlighting, and tab completion features make it easier for users to navigate and execute commands, while its user-friendly interface makes it a great choice for beginners. With plugins, compatibility with most Unix-based systems, and a supportive community, Fish Shell is a versatile and powerful tool for anyone who needs to use the command line interface. Whether you are a system administrator, developer, or casual user, Fish Shell is an excellent choice for your command line needs.
+
+#### Authors
+
+- [@filippo-ferrando](https://www.github.com/filippo-ferrando)
