@@ -56,7 +56,7 @@ When the image is put in the decoder, it will controll every pixel, if the numbe
 ### Before encoding 'hello'
 ![img before enc](https://github.com/filippo-ferrando/image-steganography/blob/main/image.png?raw=true)
 
-### Afeter encoding 'hello'
+### After encoding 'hello'
 ![img after enc](https://github.com/filippo-ferrando/image-steganography/blob/main/image_hello_enc.png?raw=true)
 
 *** You can find all the code in my repo! ***
