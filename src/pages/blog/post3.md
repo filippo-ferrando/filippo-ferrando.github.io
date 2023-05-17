@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/ProjectLayout.astro"
+layout: "../../layouts/PostLayout.astro"
 title: "How-to: Flash a Raspberry Pi"
 description: "Guide on how to install raspbian on a Raspberry pi"
 pubDate: "Jan 14 2023"

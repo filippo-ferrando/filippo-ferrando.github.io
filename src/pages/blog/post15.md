@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/ProjectLayout.astro"
+layout: "../../layouts/PostLayout.astro"
 title: "5G Connection"
 description: "Overview about the new 5G technology"
 pubDate: "Apr 05 2023"

@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/ProjectLayout.astro"
+layout: "../../layouts/PostLayout.astro"
 title: "Selfhosting #2"
 description: "Series of n articles in which I will show my homelab, from the hardware to the software."
 pubDate: "Jan 23 2023"

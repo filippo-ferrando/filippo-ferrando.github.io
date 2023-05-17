@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/ProjectLayout.astro"
+layout: "../../layouts/PostLayout.astro"
 title: "Funny sorting algorithm"
 description: "Stupid post for a stupid algorithm"
 pubDate: "Feb 12 2023"

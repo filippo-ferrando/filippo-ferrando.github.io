@@ -7,7 +7,6 @@ export interface Props {
     title: string;
     description: string;
     pubDate?: string;
-    updatedDate?: string;
     heroImage?: string;
   };
 }
@@ -23,14 +22,6 @@ const {
       {heroImage && <img src={heroImage} alt={title} class="w-full mb-6" />}
       <h1 class="title my-2 text-4xl font-bold">{title}</h1>
       {pubDate && <time>{pubDate}</time>}
-      {
-        updatedDate && (
-          <div>
-            {" "}
-            Last updated on <time>{updatedDate}</time>{" "}
-          </div>
-        )
-      }
       <div class="divider my-2"></div>
         <slot />
     </article>

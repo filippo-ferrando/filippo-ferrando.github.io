@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/ProjectLayout.astro"
+layout: "../../layouts/PostLayout.astro"
 title: "KDE Plasma"
 description: "My point of view about KDE Desktop Environment"
 pubDate: "Apr 26 2023"

@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/ProjectLayout.astro"
+layout: "../../layouts/PostLayout.astro"
 title: "The heart of your android phone"
 description: "Brief talk about the android kernel"
 pubDate: "Mar 21 2023"

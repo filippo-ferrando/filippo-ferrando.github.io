@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/ProjectLayout.astro"
+layout: "../../layouts/PostLayout.astro"
 title: "SSL"
 description: "Brief explanation of SSL encryption"
 pubDate: "May 05 2023"

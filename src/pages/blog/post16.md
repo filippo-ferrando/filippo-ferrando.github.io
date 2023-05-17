@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/ProjectLayout.astro"
+layout: "../../layouts/PostLayout.astro"
 title: "BPSC in details"
 description: "Detailed overview about smart blockchain"
 pubDate: "Apr 12 2023"

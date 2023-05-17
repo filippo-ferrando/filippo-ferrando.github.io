@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/ProjectLayout.astro"
+layout: "../../layouts/PostLayout.astro"
 title: "FISH"
 description: "Brief introduction to FISH shell"
 pubDate: "Mar 10 2023"

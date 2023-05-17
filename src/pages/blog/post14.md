@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/ProjectLayout.astro"
+layout: "../../layouts/PostLayout.astro"
 title: "The GRUB Bootloader"
 description: "Introduction to Grub bootloader"
 pubDate: "Mar 27 2023"

@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/ProjectLayout.astro"
+layout: "../../layouts/PostLayout.astro"
 title: "BTRFS"
 description: "The file system for the next-generation"
 pubDate: "Feb 28 2023"

@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/ProjectLayout.astro"
+layout: "../../layouts/PostLayout.astro"
 title: "EnadeavourOS | After 3 years"
 description: "Opinions, merits and demerits of a distro that I have been using stably on all my devices for 3 years now"
 pubDate: "Jan 18 2023"

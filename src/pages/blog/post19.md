@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/ProjectLayout.astro"
+layout: "../../layouts/PostLayout.astro"
 title: "IA vs. Cybersecurity"
 description: "Pros and Cons about IA in Cybersecurity filed"
 pubDate: "May 12 2023"

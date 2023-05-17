@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/ProjectLayout.astro"
+layout: "../../layouts/PostLayout.astro"
 title: "Different types of kernel"
 description: "Main kernel options comparison"
 pubDate: "Mar 05 2023"
