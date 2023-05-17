@@ -3,8 +3,9 @@ layout: "../../layouts/ProjectLayout.astro"
 title: "IA vs. Cybersecurity"
 description: "Pros and Cons about IA in Cybersecurity filed"
 pubDate: "May 12 2023"
-heroImage: "/post_img/post_img19.png"
+heroImage: "/post_image/post_img19.png"
 ---
+
 # The Implications of AI in Cybersecurity
 
 Artificial intelligence (AI) has the potential to revolutionize many industries, including cybersecurity. With the increasing complexity and sophistication of cyber attacks, AI can help security professionals detect, prevent, and respond to attacks in real-time. Here are some of the implications of AI in cybersecurity.
