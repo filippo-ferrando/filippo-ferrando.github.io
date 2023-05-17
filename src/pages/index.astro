@@ -10,8 +10,13 @@ const projects = (await Astro.glob("./projects/project*.{md,mdx}")).sort(
   (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
 );
 
+const writeups = (await Astro.glob("./writeups/writeup*.{md,mdx}")).sort(
+  (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+);
+
 const last_posts = posts.slice(0, 3);
 const last_projects = projects.slice(0, 1);
+const last_writeups = writeups.slice(0, 1);
 ---
 
 <BaseLayout>
@@ -61,6 +66,23 @@ const last_projects = projects.slice(0, 1);
           desc={project.frontmatter.description}
           url={project.url}
           badge={project.frontmatter.badge}
+          target="_self"
+        />
+        <div class="divider my-0"></div>
+      ))
+    }
+
+    <div>
+      <div class="text-3xl w-full font-bold mb-2">Writeups</div>
+    </div>
+    {
+      last_writeups.map((writeup) => (
+        <HorizontalCard
+          title={writeup.frontmatter.title}
+          img={writeup.frontmatter.heroImage}
+          desc={writeup.frontmatter.description}
+          url={writeup.url}
+          badge={writeup.frontmatter.badge}
           target="_self"
         />
         <div class="divider my-0"></div>
