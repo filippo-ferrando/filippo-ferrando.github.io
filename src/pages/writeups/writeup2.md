@@ -1,8 +1,9 @@
 ---
-layout: "../../layouts/PostLayout.astro"
+layout: "../../layouts/ProjectLayout.astro"
 title: "IOLI CrackMe"
 description: "Wrtieup from lv.0 to lv.2"
 pubDate: "May 17 2023"
+updateDate: "May 17 2023"
 heroImage: "/writeup_image/wu_img1.png"
 ---
 
