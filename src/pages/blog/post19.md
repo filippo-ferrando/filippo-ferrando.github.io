@@ -35,3 +35,7 @@ Another challenge is the lack of skilled professionals. AI-powered systems requi
 ## Conclusion
 
 AI has the potential to revolutionize cybersecurity by improving detection and prevention, providing real-time response, and predicting future attacks. While there are some challenges to implementing AI in cybersecurity, the benefits are significant. As cyber attacks become more sophisticated, AI-powered systems will become increasingly important in protecting organizations from cyber threats.
+
+#### Authors
+
+- [@filippo-ferrando](https://www.github.com/filippo-ferrando)

@@ -45,3 +45,7 @@ You can exit the container by running the `exit` command. To start the container
 ## Conclusion
 
 Systemd-nspawn is a lightweight containerization tool that provides a simple and secure environment for running applications. It is easy to use and does not require advanced knowledge of containerization. If you are looking for a lightweight and secure way to run applications on a Linux system, systemd-nspawn is worth considering.
+
+#### Authors
+
+- [@filippo-ferrando](https://www.github.com/filippo-ferrando)

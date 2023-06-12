@@ -25,3 +25,7 @@ While the macOS kernel and the Linux kernel share many similarities, they are no
 ## Conclusion
 
 While the macOS kernel and the Linux kernel share many similarities, they are not the same. The macOS kernel is a hybrid kernel that is based on the Mach and BSD kernels, while the Linux kernel is a monolithic kernel that is developed by a large community of developers. While both kernels share many of the same features, they have different architectures and designs. It is important to understand the differences between the two kernels to avoid confusion and misconceptions.
+
+#### Authors
+
+- [@filippo-ferrando](https://www.github.com/filippo-ferrando)
