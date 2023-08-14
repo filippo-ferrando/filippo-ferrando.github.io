@@ -2,7 +2,7 @@
 layout: "../../layouts/PostLayout.astro"
 title: "IoT"
 description: "Overview on Intenet of Things"
-pubDate: "Aug 14 2023"
+pubDate: "Jul 16 2023"
 heroImage: "/post_image/post_img23.jpg"
 ---
 # The Evolution of IoT: Connecting the World One Device at a Time
