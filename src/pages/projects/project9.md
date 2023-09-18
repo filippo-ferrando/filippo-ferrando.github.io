@@ -18,7 +18,7 @@ Telegram is an application that makes remote communication between man and machi
 Using the Telegram API and a bit of python code I'm developing a script to be able to execute commands on the servers, check the status of the containers or simply see if all the hosts are up
 <br>
 <br>
-You can see the code written so far on my github repo dedicated to this project, any kind of contribution is welcome!
+You can see the code written so far on my github [repo](https://github.com/filippo-ferrando/telegram-homelab-remote) dedicated to this project, any kind of contribution is welcome!
 
 
 #### Authors
