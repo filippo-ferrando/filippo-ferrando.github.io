@@ -14,7 +14,7 @@ Lately I've finally moved my rack to another floor in my house.
 This on the one hand is more convenient in terms of space management, but brings a series of complications from the management and maintenance of the servers inside the rack; Furthermore, with the fact that I live (almost) permanently in Turin to pursue my university studies, finding a solution to take a quick look at the situation of the machines becomes an imperative.
 
 ### My solution
-Telegram. <br>
+**Telegram.** <br>
 Telegram is an application that makes remote communication between man and machine relatively easy thanks to bots. <br>
 Using the Telegram API and a bit of python code I'm developing a script to be able to execute commands on the servers, check the status of the containers or simply see if all the hosts are up
 
@@ -27,7 +27,7 @@ Other than have a remote "control" of physical machines i also added a docker su
 
 <br>
 <br>
-You can see the code written so far on my github [repo](https://github.com/filippo-ferrando/telegram-homelab-remote) dedicated to this project, any kind of contribution is welcome!
+You can see the code written so far on my [GitHub repository](https://github.com/filippo-ferrando/telegram-homelab-remote) dedicated to this project. Any kind of contribution is welcome!
 
 
 #### Authors
