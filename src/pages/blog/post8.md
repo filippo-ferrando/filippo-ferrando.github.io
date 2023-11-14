@@ -3,7 +3,7 @@ layout: "../../layouts/PostLayout.astro"
 title: "Selfhosting #4"
 description: "Series of n articles in which I will show my homelab, from the hardware to the software."
 pubDate: "Jan 29 2023"
-heroImage: "/post_image/post_img8.webp"
+heroImage: "/post_image/post_img8.png"
 ---
 # Selfhosting | My experience pt.4
 

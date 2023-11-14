@@ -3,7 +3,7 @@ layout: "../../layouts/PostLayout.astro"
 title: "BTRFS"
 description: "The file system for the next-generation"
 pubDate: "Feb 28 2023"
-heroImage: "/post_image/post_img10.webp"
+heroImage: "/post_image/post_img10.png"
 ---
 
 # BTRFS: The Next-generation File System
