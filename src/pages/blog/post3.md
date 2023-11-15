@@ -3,7 +3,7 @@ layout: "../../layouts/PostLayout.astro"
 title: "How-to: Flash a Raspberry Pi"
 description: "Guide on how to install raspbian on a Raspberry pi"
 pubDate: "Jan 14 2023"
-heroImage: "/post_image/post_img3.png"
+heroImage: "/post_image/post_img2.png"
 ---
 # How to flash raspbian on a Rasperry Pi
 

@@ -3,7 +3,7 @@ layout: "../../layouts/PostLayout.astro"
 title: "Switching to Linux: why?"
 description: "Advantages and disadvantages (very general) of a unix-based system"
 pubDate: "Jan 14 2023"
-heroImage: "/post_image/post_img2.jpg"
+heroImage: "/post_image/post_img2.png"
 ---
 # Why choose Linux and which distro to choose?
 
