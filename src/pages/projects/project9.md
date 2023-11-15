@@ -4,7 +4,7 @@ title: "Telegram and Homelab"
 description: "Using telegram to gather info from my machines in my homelab"
 pubDate: "Sep 18 2023"
 updateDate: "Nov 14 2023"
-heroImage: "/post_image/post_img25.jpg"
+heroImage: "/project_image/project_img9.png"
 ---
 
 # Telegram controlled Homelab
