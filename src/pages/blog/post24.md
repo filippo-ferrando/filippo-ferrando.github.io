@@ -3,7 +3,7 @@ layout: "../../layouts/PostLayout.astro"
 title: "I switched to Gnome...  But Why?"
 description: "Embracing Simplicity and Functionality"
 pubDate: "Aug 14 2023"
-heroImage: "/post_image/post_img24.jpg"
+heroImage: "/post_image/post_img24.png"
 ---
 
 # Choosing GNOME Over KDE as My Everyday Desktop Environment
