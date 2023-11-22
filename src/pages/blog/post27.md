@@ -36,7 +36,7 @@ The robust encryption and intricate routing of Tor Hidden Services serve as a bu
 
 2. **Enhanced Security Measures**
 
-End-to-end encryption and an architecture designed to thwart traffic analysis bolster the security of .onion services. This fortified security infrastructure offers a heightened level of protection compared to the conventional internet.
+End-to-end encryption and an architecture designed to thwart traffic analysis bolster the security of .onion services This fortified security infrastructure offers a heightened level of protection compared to the conventional internet.
 
 3. **Accessibility and Liberated Expression**
 
@@ -60,7 +60,7 @@ The decentralized nature of Tor Hidden Services leads to a varied landscape of t
 
 Tor Hidden Services remain a testament to the ongoing quest for online privacy and liberation. Their significance transcends mere technological innovation, embodying the principles of anonymity, freedom of expression, and resistance against surveillance.
 
-However, their full potential can only be harnessed through a collective commitment to responsible usage. As we navigate this complex terrain, let us strive for a harmonious balance—a digital realm where anonymity coexists with accountability, and freedom flourishes within ethical boundaries.
+However, their full potential can only be harnessed through a collective commitment to responsible usage. As we navigate this complex terrain, let us strive for a harmonious balance a digital realm where anonymity coexists with accountability, and freedom flourishes within ethical boundaries.
 
 #### Authors
 
