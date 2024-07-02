@@ -1,23 +1,33 @@
 import rss from '@astrojs/rss';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 
+function extractDate(frontmatter) {
+  return new Date(frontmatter.date);
+}
+
 export const get = async () => {
-	const allItems = import.meta.glob('./blog/**/*.md');
+  const postImports = import.meta.glob('./blog/**/*.md');
+  const postPromises = Object.entries(postImports).map(async ([path, resolver]) => {
+    const { frontmatter } = await resolver();
+    return {
+      ...frontmatter,
+      link: path.replace('./', '/').replace('.md', ''),
+    };
+  });
 
-	const items = await Promise.all(Object.keys(allItems).map(async (path) => {
-		const { frontmatter } = await allItems[path]();
-		return {
-			...frontmatter,
-			link: path.replace('./blog', '').replace('.md', ''),
-		};
-	}));
+  const posts = await Promise.all(postPromises);
 
-	items.reverse();
+  const sortedPosts = posts.sort((a, b) => extractDate(b) - extractDate(a));
 
-	return rss({
-		title: SITE_TITLE,
-		description: SITE_DESCRIPTION,
-		site: import.meta.env.SITE,
-		items,
-	});
+  return rss({
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    site: import.meta.env.SITE,
+    items: sortedPosts.map((post) => ({
+      title: post.title,
+      description: post.description,
+      link: post.link,
+      pubDate: post.date,
+    })),
+  });
 };
