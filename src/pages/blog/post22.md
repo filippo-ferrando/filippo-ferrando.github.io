@@ -1,7 +1,7 @@
 ---
 layout: "../../layouts/PostLayout.astro"
 title: "Yay"
-description: "My package-manager of choice"
+description: "My helper of choice"
 pubDate: "Jun 12 2023"
 heroImage: "/post_image/post_img22.png"
 ---
