@@ -8,7 +8,6 @@ heroImage: "/post_image/post_img30.png"
 # macOS Code Signing: How It Works
 
 Let's start by saying that the process actually seems very simple. It consists of three main steps: code signing, notarisation, and stapling. We'll delve into what each step involves and why they are necessary.
-Process Overview
 
 Here is a simple pipeline of the process:
 
@@ -25,7 +24,9 @@ You will also need a valid Apple ID and an application-specific password, both g
 #### Small Tip
 
 Do not try to import certificates directly into your keychain. Though it may seem logical, it's not the best approach. Instead, download Xcode and use its settings to import the certificates assigned to your account.
-Code Signing.
+
+## Code Signing
+
 The first step is signing the code. Initially, I thought this would be done with a ready-made package, such as a .dmg or a working package. However, this is not the case. When signing a macOS application, all the files that are part of the final application must be signed individually using the codesign utility.
 Is this useful? I'm not sure. Necessary? Perhaps. A waste of time? Absolutely. To sign the files, we need to import our identity provided by the Developer certificate into our system keychain. This gives us a "valid identity" we can use. Wouldn't it have been easier to sign the final package directly? The need to sign every insignificant file remains a mystery.
 
