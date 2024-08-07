@@ -17,22 +17,22 @@ Here is a simple pipeline of the process:
 
 ## Prerequisites
 
-Before we can sign code, we must have an identity to certify the validity of the signature. This identity is provided by a certificate issued by Apple, known as the Developer ID Application. Once assigned to your specific Apple Developer account, this certificate allows you to sign pieces of code.
+Before we can sign code, we must have an **identity** to certify the validity of the signature. This identity is provided by a certificate issued by Apple, known as the **Developer ID Application**. Once assigned to your specific Apple Developer account, this certificate allows you to *sign* pieces of code.
 
 You will also need a valid Apple ID and an application-specific password, both generated and issued by Apple Developer. This complex process involves multiple certificates and passwords rather than a single token directly assigned to the Apple account.
 
 #### Small Tip
 
-Do not try to import certificates directly into your keychain. Though it may seem logical, it's not the best approach. Instead, download Xcode and use its settings to import the certificates assigned to your account.
+Do not try to import certificates directly into your **keychain**. **Though it may seem logical, it's not the best approach.** Instead, download Xcode and use its settings to import the certificates assigned to your account.
 
 ## Code Signing
 
-The first step is signing the code. Initially, I thought this would be done with a ready-made package, such as a .dmg or a working package. However, this is not the case. When signing a macOS application, all the files that are part of the final application must be signed individually using the codesign utility.
-Is this useful? I'm not sure. Necessary? Perhaps. A waste of time? Absolutely. To sign the files, we need to import our identity provided by the Developer certificate into our system keychain. This gives us a "valid identity" we can use. Wouldn't it have been easier to sign the final package directly? The need to sign every insignificant file remains a mystery.
+The first step is signing the code. Initially, I thought this would be done with a ready-made package, such as a .dmg or a working package. However, this is not the case. When signing a macOS application, all the files that are part of the final application must be signed individually using the ```codesign``` utility.
+Is this useful? I'm not sure. Necessary? Perhaps. A waste of time? Absolutely. To sign the files, we need to import our identity provided by the Developer certificate into our system keychain. This gives us a "valid identity" we can use. Wouldn't it have been easier to sign the final package directly? I think we'll never know.
 
 ## Notarisation
 
-The second step is notarisation. After signing the entire package, we need to ask Apple to confirm that we haven't messed anything up. We take our signed app, zip it, and send it to Apple, which will conduct thorough checks on our package and return it in a reasonable timeframe.
+The second step is notarisation. After signing the entire package, we need to ask Apple to confirm that we haven't messed anything up. We take our signed app, zip it, and send it to Apple, which will conduct thorough checks on our package and return it in a *reasonable* timeframe.
 
 To do this, we need our Apple ID, app-specific password, and Team ID. When we get the package back, we'll know if it has been properly notarised or if there's something considered unworthy or unsafe for publication.
 
@@ -48,6 +48,6 @@ The cost is not the main issue, though. The real difficulty lies in configuring 
 
 ## Conclusion
 
-At this point, I have not yet successfully configured a remote runner that can return a correctly signed package, despite positive responses from various tools. I can't explain why signing, notarisation, and stapling, which consistently yield positive responses, still fail to sign a package. I will probably opt for using self-hosted runners, so I can configure everything once via the graphical interface.
+At this point, I have not yet successfully configured a remote runner that can return a correctly signed package, despite positive responses from all the used tools. I can't explain why signing, notarisation, and stapling, which consistently yield positive responses, still fail to sign a package. I will probably opt for using self-hosted runners, so I can configure everything once via the graphical interface. I'll keep you updated.
 
 Thanks, Apple, for these weeks of intense fun.
