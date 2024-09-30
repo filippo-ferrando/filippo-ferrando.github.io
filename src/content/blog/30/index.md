@@ -3,6 +3,7 @@ title: "Signing Mac OS packages"
 slug: "signing-macos-packages"
 description: "My experience after a month of working on macOS"
 pubDate: "Aug 7 2024"
+updateDate: "Set 30 2024"
 tags: ["MacOS", "CI"]
 coverImage: "./post_img30.avif"
 ---
@@ -52,3 +53,13 @@ The cost is not the main issue, though. The real difficulty lies in configuring 
 At this point, I have not yet successfully configured a remote runner that can return a correctly signed package, despite positive responses from all the used tools. I can't explain why signing, notarisation, and stapling, which consistently yield positive responses, still fail to sign a package. I will probably opt for using self-hosted runners, so I can configure everything once via the graphical interface. I'll keep you updated.
 
 Thanks, Apple, for these weeks of intense fun.
+
+## Update
+
+In the last month I was able to complete the project by signing it!
+
+The solution turned out to be using self-hosted runners with a signature-enabled account on them and with the certificates imported BY HAND from xcode.
+Doing it this way, you need (if you want to use a CI/CD system) to configure the machine as a local runner (in the case of github it is a very very simple process) and prepare the environment where the application will be built.
+This solution is very efficient as well as not very scalable on builds of multiple applications or very very large applications as the time would be quite stretched unless multiple runners are configured on the same repository.
+
+It seems that apple doesn't really like automations to make our lives a little easier....
