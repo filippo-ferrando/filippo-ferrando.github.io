@@ -3,7 +3,7 @@ title: "Signing Mac OS packages"
 slug: "signing-macos-packages"
 description: "My experience after a month of working on macOS"
 pubDate: "Aug 7 2024"
-updateDate: "Set 30 2024"
+updatedDate: "Set 30 2024"
 tags: ["MacOS", "CI"]
 coverImage: "./post_img30.avif"
 ---
