@@ -3,7 +3,7 @@ title: "Safeguarding Digital assets in an Interconnected World"
 slug: "safeguarding-assets-in-interconnected-world"
 description: "Brief talk about cybersecurity in our society"
 pubDate: "Jul 17 2024"
-tags: ["Security"]
+tags: ["CyberSec"]
 coverImage: "./post_img29.jpg"
 ---
 
