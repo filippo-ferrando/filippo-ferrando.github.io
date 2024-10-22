@@ -40,14 +40,14 @@ export const projects: Project[] = [
     ...(await getRepositoryDetails('filippo-ferrando/RFID-raspberrypi-reader')),
     name: 'RFID totem with Raspberry Pi',
     demoLink: 'https://github.com/filippo-ferrando/RFID-raspberrypi-reader',
-    tags: ['Blog']
+    tags: ['Raspberry Pi', 'Python']
   },
   {
     ...(await getRepositoryDetails('chassis-squad/Chassis_Squad')),
     name: 'Indoor WiFi Positioning',
     demoLink: 'https://github.com/chassis-squad/Chassis_Squad',
     demoLinkRel: 'nofollow noopener noreferrer',
-    tags: ['Python', 'Arduino', 'Computer Vision']
+    tags: ['Python', 'Arduino', 'OpenCV']
   },
   {
     ...(await getRepositoryDetails('filippo-ferrando/quelli-silenziosi')),
@@ -65,6 +65,6 @@ export const projects: Project[] = [
     ...(await getRepositoryDetails('PCTO-OneTwoCode/src')),
     name: 'Math Bullet',
     demoLink: 'https://github.com/PCTO-OneTwoCode/src/wiki',
-    tags: ['Computer Vision']
+    tags: ['OpenCV', 'Python']
   }  
 ]
