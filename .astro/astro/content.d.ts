@@ -319,6 +319,20 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"31/index.md": {
+	id: "31/index.md";
+  slug: "gh-action";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"32/index.md": {
+	id: "32/index.md";
+  slug: "steamdeck-and-steamos";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "4/index.md": {
 	id: "4/index.md";
   slug: "endeavouros-after-3-years";
