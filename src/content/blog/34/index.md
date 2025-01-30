@@ -1,5 +1,5 @@
 ---
-title: "ECC ram"
+title: "ECC Memory"
 slug: "ecc-ram"
 description: "What is, How it works, Where is it used"
 pubDate: "Jan 30 2025"
@@ -7,7 +7,7 @@ tags: ["Hardware"]
 coverImage: "./post_img34.png"
 ---
 
-# ECC Memory: Why It’s a Big Deal and Why Gamers Don’t Care
+# Why It’s a Big Deal and Why Gamers Don’t Care
 
 ## Introduction
 
