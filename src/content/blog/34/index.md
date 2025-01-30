@@ -2,7 +2,7 @@
 title: "ECC ram"
 slug: "ecc-ram"
 description: "What is, How it works, Where is it used"
-pubDate: "Gen 30 2025"
+pubDate: "Jan 30 2025"
 tags: ["Hardware"]
 coverImage: "./post_img34.png"
 ---
