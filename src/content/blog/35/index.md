@@ -1,5 +1,5 @@
 ---
-title: "Hypervisors types"
+title: "Understanding Hypervisors"
 slug: "hypervisors-types"
 description: "Short comparison of hypervisors based on the case of use"
 pubDate: "Feb 13 2025"
