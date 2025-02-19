@@ -1,0 +1,58 @@
+name: Publish to Mastodon
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Get commit message
+      id: get_commit_message
+      run: echo "::set-output name=message::$(git log -1 --pretty=%B)"
+
+    - name: Check if commit message contains "new post"
+      id: check_message
+      run: |
+        if [[ "${{ steps.get_commit_message.outputs.message }}" == *"new post"* ]]; then
+          echo "::set-output name=contains_new_post::true"
+        else
+          echo "::set-output name=contains_new_post::false"
+        fi
+
+    - name: Generate random phrase
+      id: generate_phrase
+      if: steps.check_message.outputs.contains_new_post == 'true'
+      run: |
+        phrases=("Check out my new post!" "I just published a new article!" "New content available!" "Fresh post alert!")
+        random_phrase=${phrases[$RANDOM % ${#phrases[@]}]}
+        echo "::set-output name=phrase::$random_phrase"
+
+    - name: Get article slug
+      id: get_article_slug
+      if: steps.check_message.outputs.contains_new_post == 'true'
+      run: |
+        article_file=$(git diff-tree --no-commit-id --name-only -r HEAD | grep -E '^src/content/blog/.*\.md$' | head -n 1)
+        if [ -n "$article_file" ]; then
+            slug=$(grep '^slug:' "$article_file" | sed -n 's/^slug: "\([^"]*\)"$/\1/p')
+            echo "::set-output name=slug::$slug"
+        else
+            echo "No article file found"
+            exit 1
+        fi
+
+    - name: Publish to Mastodon
+      if: steps.check_message.outputs.contains_new_post == 'true'
+      env:
+        MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+        MASTODON_INSTANCE: ${{ secrets.MASTODON_INSTANCE }}
+      run: |
+        article_url="https://filippo-ferrando.github.io/${{ steps.get_article_slug.outputs.slug }}"
+        message="${{ steps.generate_phrase.outputs.phrase }} $article_url"
+        curl -X POST -H "Authorization: Bearer $MASTODON_ACCESS_TOKEN" -F "status=$message" "https://$MASTODON_INSTANCE/api/v1/statuses"
