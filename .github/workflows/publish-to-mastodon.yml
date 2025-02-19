@@ -34,18 +34,28 @@ jobs:
         random_phrase=${phrases[$RANDOM % ${#phrases[@]}]}
         echo "::set-output name=phrase::$random_phrase"
 
-    - name: Get article slug
-      id: get_article_slug
-      if: steps.check_message.outputs.contains_new_post == 'true'
+    - name: Get changed files
+      id: changed-files
       run: |
-        article_file=$(git diff-tree --no-commit-id --name-only -r HEAD | grep -E '^src/content/blog/.*\.md$' | head -n 1)
-        if [ -n "$article_file" ]; then
-            slug=$(grep '^slug:' "$article_file" | sed -n 's/^slug: "\([^"]*\)"$/\1/p')
-            echo "::set-output name=slug::$slug"
+        # Ottieni l'ultimo commit SHA
+        LAST_COMMIT_SHA=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          "https://api.github.com/repos/${{ github.repository }}/commits?per_page=1" | jq -r '.[0].sha')
+
+        # Ottieni i file modificati nell'ultimo commit
+        CHANGED_FILES=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          "https://api.github.com/repos/${{ github.repository }}/commits/$LAST_COMMIT_SHA" | jq -r '.files[].filename')
+
+        # Cerca un file Markdown nella directory src/content/blog/
+        ARTICLE_FILE=$(echo "$CHANGED_FILES" | grep -E '^src/content/blog/.*\.md$' | head -n 1)
+
+        if [ -n "$ARTICLE_FILE" ]; then
+          SLUG=$(grep '^slug:' "$ARTICLE_FILE" | sed -n 's/^slug: "\([^"]*\)"$/\1/p')
+          echo "::set-output name=slug::$SLUG"
         else
-            echo "No article file found"
-            exit 1
+          echo "No article file found"
+          exit 1
         fi
+      shell: bash
 
     - name: Publish to Mastodon
       if: steps.check_message.outputs.contains_new_post == 'true'
@@ -53,6 +63,6 @@ jobs:
         MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
         MASTODON_INSTANCE: ${{ secrets.MASTODON_INSTANCE }}
       run: |
-        article_url="https://filippo-ferrando.github.io/${{ steps.get_article_slug.outputs.slug }}"
+        article_url="https://filippo-ferrando.github.io/${{ steps.changed-files.outputs.SLUG }}"
         message="${{ steps.generate_phrase.outputs.phrase }} $article_url"
         curl -X POST -H "Authorization: Bearer $MASTODON_ACCESS_TOKEN" -F "status=$message" "https://$MASTODON_INSTANCE/api/v1/statuses"
