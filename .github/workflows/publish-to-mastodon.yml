@@ -30,7 +30,34 @@ jobs:
       id: generate_phrase
       if: steps.check_message.outputs.contains_new_post == 'true'
       run: |
-        phrases=("Check out my new post!" "I just published a new article!" "New content available!" "Fresh post alert!")
+        phrases = (
+          "Check out my new post! 🚀",  
+          "I just published a new article! 📝",  
+          "New content available! 🎉",  
+          "Fresh post alert! 🔥",  
+          "Just dropped a new post! 👀",  
+          "Hot off the press! 📰",  
+          "My latest article is live! ✨",  
+          "Don't miss my new post! 📌",  
+          "Exciting new content just for you! 🎊",  
+          "Breaking: My latest blog is out now! 🏆",  
+          "A fresh read is waiting for you! 📖",  
+          "Something new just landed! 🚀",  
+          "Just hit publish! 🖊️",  
+          "Big news! New post is up! 📢",  
+          "New insights just for you! 💡",  
+          "Have you seen my latest post? 🤩",  
+          "Your next favorite read is here! 📚",  
+          "Get ready for something fresh! 🍃",  
+          "Straight from my thoughts to your screen! 💭",  
+          "Another gem just went live! 💎",  
+          "You won’t want to miss this one! 👌",  
+          "Guess what? New post alert! 🚨",  
+          "Diving deep in my latest article! 🌊",    
+          "Time for some fresh knowledge! 🧠",  
+          "New words, fresh ideas! 🌟",  
+          "Fuel your mind with my latest post! 🔥",  
+          "Read all about it! 🗞️")
         random_phrase=${phrases[$RANDOM % ${#phrases[@]}]}
         echo "::set-output name=phrase::$random_phrase"
 
@@ -64,5 +91,5 @@ jobs:
         MASTODON_INSTANCE: ${{ secrets.MASTODON_INSTANCE }}
       run: |
         article_url="https://filippo-ferrando.github.io/${{ steps.changed-files.outputs.SLUG }}"
-        message="${{ steps.generate_phrase.outputs.phrase }} $article_url"
+        message="${{ steps.generate_phrase.outputs.phrase }}\n\n$article_url"
         curl -X POST -H "Authorization: Bearer $MASTODON_ACCESS_TOKEN" -F "status=$message" "https://$MASTODON_INSTANCE/api/v1/statuses"
