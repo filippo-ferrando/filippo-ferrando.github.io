@@ -63,6 +63,7 @@ jobs:
 
     - name: Get changed files
       id: changed-files
+      if: steps.check_message.outputs.contains_new_post == 'true'
       run: |
         # Ottieni l'ultimo commit SHA
         LAST_COMMIT_SHA=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
