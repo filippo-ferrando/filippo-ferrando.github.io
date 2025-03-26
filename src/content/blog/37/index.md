@@ -1,7 +1,7 @@
 ---
 title: "Containerization: a Docker overview"
 slug: "overview-on-docker"
-description: "Docker, Dockerfile and docker-compose"
+description: "Docker, Dockerfile and Docker-Compose"
 pubDate: "Mar 26 2025"
 tags: ["Container"]
 coverImage: "./post_img37.webp"
