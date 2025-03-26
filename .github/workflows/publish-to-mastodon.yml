@@ -30,7 +30,7 @@ jobs:
       id: generate_phrase
       if: steps.check_message.outputs.contains_new_post == 'true'
       run: |
-        phrases = (
+        phrases=(
           "Check out my new post! 🚀",  
           "I just published a new article! 📝",  
           "New content available! 🎉",  
