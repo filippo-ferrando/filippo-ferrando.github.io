@@ -92,5 +92,5 @@ jobs:
         MASTODON_INSTANCE: ${{ secrets.MASTODON_INSTANCE }}
       run: |
         article_url="https://filippo-ferrando.github.io/${{ steps.changed-files.outputs.SLUG }}"
-        message="${{ steps.generate_phrase.outputs.phrase }}\n\n$article_url"
+        message="${{ steps.generate_phrase.outputs.phrase }} %0A%0A ${article_url}"
         curl -X POST -H "Authorization: Bearer $MASTODON_ACCESS_TOKEN" -F "status=$message" "https://$MASTODON_INSTANCE/api/v1/statuses"
