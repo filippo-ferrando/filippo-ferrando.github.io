@@ -6,95 +6,154 @@ import { Image } from 'astro:assets';
 import FormattedDate from '../components/FormattedDate.astro';
 import AboutTheAuthor from '../components/widgets/AboutTheAuthor.astro';
 import TableOfContent from '../components/widgets/TableOfContent.astro';
-import { slugify } from '../utils';
+import { slugify, calculateReadingTime } from '../utils';
 import { loadEnv } from 'vite';
+import type { BlogPost } from '../types';
 
 const { GISCUS_REPO, GISCUS_REPO_ID, GISCUS_CATEGORY, GISCUS_CATEGORY_ID } = loadEnv(process.env.NODE_ENV || 'production', process.cwd(), '');
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
-	return posts.map((post: any) => ({
+	return posts.map((post: BlogPost) => ({
 		params: { slug: post.slug },
 		props: post
 	}));
 }
-type Props = CollectionEntry<'blog'>;
+
+type Props = BlogPost;
 const post = Astro.props;
 const {
 	data: { title, seoTitle, description, coverImage, pubDate, updatedDate, tags }
 } = post;
 const { Content, headings } = await post.render();
+
+// Calculate reading time from post content
+const readingTime = calculateReadingTime(post.body);
+
+// Prepare SEO props
+const seoProps = {
+  title: seoTitle || title,
+  description,
+  type: 'article' as const,
+  publishedTime: pubDate.toISOString(),
+  ...(updatedDate && { modifiedTime: updatedDate.toISOString() }),
+  ...(tags && tags.length > 0 && { tags }),
+  ...(coverImage && { image: coverImage.src })
+};
 ---
 
-<BaseLayout title={seoTitle || title} description={description} image={coverImage?.src || undefined}>
-	<div class='container lg:flex gap-10'>
-		<main
-			class='overflow-hidden grow'
-		>
-			<article>
-				<Prose>
-					<div>
-						<h1 class='!my-1 leading-tight'>{title}</h1>
-            <div class='text-sm font-[500] mt-2 sm:mt-0 py-1 md:text-right flex flex-col sm:flex-row gap-3 sm:justify-between sm:items-center'>
-              {
-                <div class='flex gap-2'>
-                  {
-                    (tags || [] )?.map((tag: string) => (
-                      <a
-                        class='border border-zinc-300 dark:border-zinc-700 rounded-2xl
-                          text-sm text-zinc-700 dark:text-zinc-300 no-underline px-2 py-0.5
-                          transition-all duration-700
-                        hover:border-zinc-700 dark:hover:border-zinc-300'
-                        href={`/tags/${slugify(tag)}`}>
-                        {tag}
-                      </a>
-                    ))
-                  }
-                </div>
-              }
-              <div>
-                {
-                  updatedDate ?
-                    <>Updated on <strong><FormattedDate date={updatedDate} /></strong></>
-                  :
-                    <>Published on <strong><FormattedDate date={pubDate} /></strong></>
-                }
-              </div>
-            </div>
-					</div>
-          <div class='py-3 overflow-hidden'>
-            {coverImage && <Image class='rounded-3xl w-full m-0 lg:mb-2' src={coverImage} alt={title} loading='eager' />}
-          </div>
-					<Content />
-				</Prose>
-        {
-          GISCUS_REPO &&
-            <script
-              id='giscus-script'
-              is:inline
-              src='https://giscus.app/client.js'
-              data-repo={GISCUS_REPO}
-              data-repo-id={GISCUS_REPO_ID}
-              data-category={GISCUS_CATEGORY}
-              data-category-id={GISCUS_CATEGORY_ID}
-              data-mapping='pathname'
-              data-strict='0'
-              data-reactions-enabled='1'
-              data-emit-metadata='0'
-              data-input-position='bottom'
-              data-theme='preferred_color_scheme'
-              data-lang='en'
-              crossorigin='anonymous'
-              async></script>
-        }
+<BaseLayout {...seoProps}>
+	<div class='container'>
+		<div class='lg:flex gap-8 xl:gap-12'>
+			<main class='overflow-hidden lg:flex-1 lg:max-w-4xl'>
+				<article itemscope itemtype="https://schema.org/BlogPosting">
+					<header class='mb-8'>
+						<h1 class='text-3xl md:text-4xl font-bold leading-tight mb-4' itemprop="headline">
+							{title}
+						</h1>
+						
+						<div class='flex flex-col sm:flex-row gap-4 sm:justify-between sm:items-center text-sm'>
+							<div class='flex flex-wrap gap-2'>
+								{tags && tags.map((tag: string) => (
+									<a
+										href={`/tags/${slugify(tag)}`}
+										class='inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200'
+										itemprop="keywords"
+									>
+										{tag}
+									</a>
+								))}
+							</div>
+							
+							<div class='flex flex-col sm:items-end gap-2 text-gray-600 dark:text-gray-400'>
+								<time 
+									datetime={pubDate.toISOString()}
+									itemprop="datePublished"
+									class='text-sm'
+								>
+									{updatedDate ? (
+										<>
+											Updated on <strong><FormattedDate date={updatedDate} /></strong>
+										</>
+									) : (
+										<>
+											Published on <strong><FormattedDate date={pubDate} /></strong>
+										</>
+									)}
+								</time>
+								{updatedDate && (
+									<meta itemprop="dateModified" content={updatedDate.toISOString()} />
+								)}
+								<div class='text-xs'>
+									<span itemprop="timeRequired">
+										{readingTime} min read
+									</span>
+									<meta itemprop="timeRequired" content={`PT${readingTime}M`} />
+								</div>
+							</div>
+						</div>
+					</header>
 
-			</article>
-		</main>
-    <div class='shrink-0 w-[280px] hidden md:block'>
-      <div class='mb-4'>
-				<AboutTheAuthor />
-			</div>
-			<TableOfContent headings={headings} />
+					{coverImage && (
+						<div class='mb-8 overflow-hidden rounded-xl'>
+							<Image 
+								src={coverImage} 
+								alt={title} 
+								class='w-full h-auto' 
+								loading='eager'
+								itemprop="image"
+							/>
+						</div>
+					)}
+
+					<Prose>
+						<div itemprop="articleBody">
+							<Content />
+						</div>
+					</Prose>
+
+					<meta itemprop="author" content="Filippo Ferrando" />
+					<meta itemprop="publisher" content="Filippo Ferrando" />
+				</article>
+				
+				{/* Mobile Author Section */}
+				<div class='mt-8 lg:hidden'>
+					<AboutTheAuthor />
+				</div>
+				
+				{
+					GISCUS_REPO &&
+						<script
+							id='giscus-script'
+							is:inline
+							src='https://giscus.app/client.js'
+							data-repo={GISCUS_REPO}
+							data-repo-id={GISCUS_REPO_ID}
+							data-category={GISCUS_CATEGORY}
+							data-category-id={GISCUS_CATEGORY_ID}
+							data-mapping='pathname'
+							data-strict='0'
+							data-reactions-enabled='1'
+							data-emit-metadata='0'
+							data-input-position='bottom'
+							data-theme='preferred_color_scheme'
+							data-lang='en'
+							crossorigin='anonymous'
+							async></script>
+				}
+			</main>
+			
+			{/* Desktop Sidebar */}
+			<aside class='hidden lg:block lg:w-72 xl:w-80 lg:shrink-0'>
+				<div class='sticky top-8 space-y-6'>
+					<div>
+						<AboutTheAuthor />
+					</div>
+					<div>
+						<TableOfContent headings={headings} />
+					</div>
+				</div>
+			</aside>
 		</div>
 	</div>
 </BaseLayout>

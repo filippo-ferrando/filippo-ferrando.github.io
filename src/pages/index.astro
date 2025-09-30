@@ -1,60 +1,132 @@
 ---
-import { SITE_TITLE, SITE_TAGLINE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE, SITE_TAGLINE, SITE_DESCRIPTION, RECENT_POSTS_COUNT, FEATURED_PROJECTS_COUNT } from '../consts';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
-import Ava from '@src/assets/img/ava.jpg';
+import type { BlogPost } from '../types';
+import Ava from '../assets/img/ava.jpg';
 import Prose from '../components/Prose.astro';
 import { projects } from './projects/projects';
 import ProjectList from '../components/ProjectList.astro'
 import PostItem from '../components/PostItem.astro';
 
-type BlogPost = CollectionEntry<'blog'>;
-
-const top6Projects = projects.slice(0, 6);
-const posts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 5);
+const topProjects = projects.slice(0, FEATURED_PROJECTS_COUNT);
+const posts = (await getCollection('blog'))
+  .sort((a: BlogPost, b: BlogPost) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, RECENT_POSTS_COUNT);
 ---
 
-<BaseLayout title={SITE_TITLE + ' - ' + SITE_TAGLINE} description={SITE_DESCRIPTION}>
+<BaseLayout title={`${SITE_TITLE} - ${SITE_TAGLINE}`} description={SITE_DESCRIPTION}>
 	<div class='container'>
-		<div class='w-full md:flex md:items-center gap-16 mb-10'>
-      <div class="text-pretty leading-9">
-        <h1 class="text-4xl font-bold mb-4">Hi There 👋, Fil Here! </h1>
-        <Prose>
-          <div class="text-lg">
-            <p>I'm a Computer Science student at the University of Torino, Italy.<p>
-            <p>I'm passionate about cyber security, music and cars.</p>
-            <p>When I'm not studying or working, I like to keep busy by working on my kart and hit the track whenever i can.</p>
-            <!--  <a href="https://koalendar.com/e/fferrando">Let's talk!</a> -->
-          </div>
-        </Prose>
-      </div>
-      <Image src={Ava} alt="Filippo Ferrando Damillano" width={300} loading="eager" class="rounded-3xl rotate-3 mx-4 md:mx-0"/>
-		</div>
-		<main>
-      <div class='mt-6 mb-12'>
-        <div class="flex justify-between gap-2 border-b mb-1 dark:border-b-zinc-700">
-          <h2 class="text-lg font-bold mb-3">Recent Posts</h2>
-          <a href="/posts/" class="inline-block py-2 underline dark:prose-invert">All posts &raquo;</a>
-        </div>
-        <div>
-          {
-            posts.map((post: BlogPost) => (
-              <PostItem post={post} />
-            ))
-          }      
-        </div>
-        <div class="text-right">
-        </div>
-      </div>
-      <div>
-        <div class="flex justify-between gap-2 mb-1">
-          <h2 class="text-lg font-bold mb-3">My Projects</h2>
-          <a href="/projects/" class="inline-block py-2 underline dark:prose-invert">All projects &raquo;</a>
-        </div>
-        <ProjectList projects={top6Projects}/>
-      </div>
+		<section class='w-full md:flex md:items-center gap-16 mb-16'>
+			<div class="text-pretty leading-relaxed flex-1">
+				<h1 class="text-4xl md:text-5xl font-bold mb-6 text-balance">
+					Hi There <span class="wave">👋</span>, Fil Here!
+				</h1>
+				<Prose>
+					<div class="text-lg space-y-4">
+						<p>I'm a <strong>Cybersecurity student</strong> at the Politecnico of Torino, Italy.</p>
+						<p>I'm passionate about <strong>operating systems</strong>, <strong>music</strong> and <strong>cars</strong>.</p>
+						<p>When I'm not studying or working, I like to keep busy by working on my kart and hit the track whenever I can.</p>
+					</div>
+				</Prose>
+			</div>
+			<div class="flex-shrink-0 mt-8 md:mt-0">
+				<Image 
+					src={Ava} 
+					alt="Filippo Ferrando Damillano" 
+					width={300} 
+					height={300}
+					loading="eager" 
+					class="rounded-3xl rotate-2 hover:rotate-0 transition-transform duration-300 shadow-2xl"
+				/>
+			</div>
+		</section>
+
+		<main class="space-y-16">
+			<section class='animate-fade-in'>
+				<div class="flex justify-between items-center border-b border-gray-200 dark:border-zinc-700 pb-4 mb-8">
+					<h2 class="text-2xl font-bold">Recent Posts</h2>
+					<a 
+						href="/posts/" 
+						class="inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium transition-colors"
+					>
+						All posts 
+						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+						</svg>
+					</a>
+				</div>
+				<div class="space-y-2">
+					{posts.map((post: BlogPost) => (
+						<PostItem post={post} />
+					))}      
+				</div>
+			</section>
+
+			<section class='animate-fade-in'>
+				<div class="flex justify-between items-center border-b border-gray-200 dark:border-zinc-700 pb-4 mb-8">
+					<h2 class="text-2xl font-bold">Featured Projects</h2>
+					<a 
+						href="/projects/" 
+						class="inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium transition-colors"
+					>
+						All projects
+						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+						</svg>
+					</a>
+				</div>
+				<ProjectList projects={topProjects}/>
+			</section>
 		</main>
 	</div>
 </BaseLayout>
+
+<style>
+	.wave {
+		animation: wave 2s ease-in-out infinite !important;
+		transform-origin: 70% 70% !important;
+		display: inline-block !important;
+	}
+
+	@keyframes wave {
+		0%, 100% {
+			transform: rotate(0deg);
+		}
+		10% {
+			transform: rotate(14deg);
+		}
+		20% {
+			transform: rotate(-8deg);
+		}
+		30% {
+			transform: rotate(14deg);
+		}
+		40% {
+			transform: rotate(-4deg);
+		}
+		50% {
+			transform: rotate(10deg);
+		}
+		60% {
+			transform: rotate(0deg);
+		}
+		70% {
+			transform: rotate(0deg);
+		}
+	}
+	
+	/* Alternative fallback for better browser support */
+	@media (prefers-reduced-motion: no-preference) {
+		.wave:hover {
+			animation: wave-hover 0.6s ease-in-out;
+		}
+	}
+	
+	@keyframes wave-hover {
+		0%, 100% { transform: rotate(0deg); }
+		25% { transform: rotate(20deg); }
+		75% { transform: rotate(-10deg); }
+	}
+</style>

@@ -2,40 +2,68 @@
 import BaseHead from './components/BaseHead.astro';
 import Header from './components/Header.astro';
 import Footer from './components/Footer.astro';
+import { ViewTransitions } from 'astro:transitions';
 import { loadEnv } from 'vite';
+import type { BaseLayoutProps } from '@/types';
 
 const { GTAG_MEASUREMENT_ID } = loadEnv(process.env.NODE_ENV || 'production', process.cwd(), '');
-const { title, description, image } = Astro.props;
+
+interface Props extends BaseLayoutProps {}
+
+const { title, description, image, className = '' } = Astro.props;
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang='en' data-theme='dark' class='dark'>
 	<head>
-		<BaseHead title={title} description={description} image={image} />
+		<BaseHead 
+			title={title} 
+			description={description} 
+			{...(image ? { image } : {})} 
+		/>
+		<ViewTransitions />
 	</head>
 	<body
-		class="bg-white dark:bg-zinc-900 dark:text-zinc-100 pt-16 sm:pt-0"
+		class={`bg-zinc-900 text-zinc-100 pt-16 sm:pt-0 antialiased ${className}`}
+		data-theme='dark'
 	>
-		<Header/>
+		<Header />
 		<div class='py-8 min-h-[calc(100vh-160px)]'>
 			<slot />
 		</div>
 		<Footer />
-		<!-- Google tag (gtag.js) -->
-    {
-      GTAG_MEASUREMENT_ID &&
-      <>
-        <script type='text/partytown' async src={'https://www.googletagmanager.com/gtag/js?id=' + GTAG_MEASUREMENT_ID}></script>
-        <script type='text/partytown' define:vars={{ GTAG_MEASUREMENT_ID }}>
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            dataLayer.push(arguments);
-          }
-          gtag('js', new Date());
-
-          gtag('config', GTAG_MEASUREMENT_ID);
-        </script>
-      </>
-    }
+		
+		<!-- Force Dark Theme Script -->
+		<script is:inline>
+			// Force dark theme always
+			document.documentElement.classList.add('dark');
+			document.documentElement.setAttribute('data-theme', 'dark');
+			document.body.setAttribute('data-theme', 'dark');
+			localStorage.setItem('theme', 'dark');
+		</script>
+		
+		<!-- Google Analytics -->
+		{
+			GTAG_MEASUREMENT_ID && (
+				<>
+					<script 
+						type='text/partytown' 
+						async 
+						src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_MEASUREMENT_ID}`}
+					></script>
+					<script type='text/partytown' define:vars={{ GTAG_MEASUREMENT_ID }}>
+						window.dataLayer = window.dataLayer || [];
+						function gtag() {
+							dataLayer.push(arguments);
+						}
+						gtag('js', new Date());
+						gtag('config', GTAG_MEASUREMENT_ID, {
+							page_title: document.title,
+							page_location: window.location.href,
+						});
+					</script>
+				</>
+			)
+		}
 	</body>
 </html>

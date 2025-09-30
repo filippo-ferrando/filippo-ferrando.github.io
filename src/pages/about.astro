@@ -1,44 +1,56 @@
 ---
 import { Image } from 'astro:assets';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Ava from '@src/assets/img/ava.jpg';
-import Prose from '../components/Prose.astro';
-
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Ava from '@/assets/img/ava.jpg';
+import Prose from '@/components/Prose.astro';
 ---
 
 <BaseLayout
 	title="About Me"
 	description="Some information about Filippo Ferrando"
 >
-  <div class='container'>
-		<main class='prose text-lg dark:prose-invert'>
-      <article>
-        <div class='w-full md:flex md:items-center gap-16 mb-10'>
-          <div class="text-pretty leading-9">
-            <h1 class="text-4xl font-bold mb-4">Hi There 👋, Fil Here!</h1>
-            <Prose>
-              <div class="text-lg">
-                <p>I'm Filippo Ferrando, a Computer Science student at the University of Turin with a strong passion for racing and technology. My core competencies include networking, programming, and managing Unix-based systems.</p>
-                <p>I consider myself a determined individual, always eager to learn new things, independent, and capable of solving various problems.</p>
-              </div>
-            </Prose>
-          </div>
-          <Image src={Ava} alt="Filippo Ferrando" width={300} class="rounded-3xl rotate-3 mx-4 md:mx-0"/>
-        </div>
-        <div>
-          <p>
-            <p>Alongside my university studies, I work with <a href="https://elemento.cloud" target="_blank" class="underline">Elemento Cloud</a> to revolutionize the cloud services industry.</p>
-      
-            <p>My passion for karting has provided me with extensive knowledge of mechanics and driving. This enthusiasm led me to delve deeper into 2-stroke engines, exploring topics from basic physical phenomena to advanced tuning techniques. I've read numerous books on the subject and conducted experiments at home. Currently, I spend weekends working as a mechanic for a karting team, supporting a young driver competing in an Italian single-brand championship.</p>
-      
-            <p>I've been playing the guitar since the age of 6, dedicating nearly a decade to classical guitar studies and now focusing on electric guitar.</p>
-      
-            <p>I am particularly interested in virtualization and containerization technologies, with a strong focus on open-source solutions. I am currently working with tools such as KVM and Docker to optimize system efficiency and scalability.</p>
-      
-          </p>
-        </div>
-      </article>
-      </article>
-    </main>
-  </div>
+	<div class='container'>
+		<main class='prose dark:prose-invert max-w-none'>
+			<article>
+				<!-- Hero Section -->
+				<section class='w-full lg:flex lg:items-start gap-16 mb-12'>
+					<div class="text-pretty leading-relaxed lg:flex-1 lg:max-w-2xl">
+						<h1 class="text-4xl md:text-5xl font-bold mb-8">Get to Know Me Better</h1>
+						<div class="text-xl space-y-5">
+							<p>
+								Beyond my studies in Cybersecurity at Politecnico di Torino, I work with
+								<a href="https://elemento.cloud" target="_blank" class="underline font-semibold hover:text-blue-400 transition-colors">Elemento Cloud</a>
+								where we're <span class="font-semibold text-blue-400">revolutionizing the cloud services industry</span>. 
+								It's fascinating to apply what I learn academically to real-world problems in distributed systems and infrastructure security.
+							</p>
+
+							<p>
+								My <span class="font-semibold text-blue-400">passion for karting</span> runs deep and has shaped much of who I am. 
+								What started as weekend fun evolved into serious mechanical knowledge about <span class="font-semibold">2-stroke engines</span> — from understanding combustion physics to advanced tuning techniques.
+								I've spent countless hours reading technical manuals, experimenting with setups, and getting my hands dirty.
+								These days, I channel this expertise as a <span class="font-semibold">mechanic for a racing team</span>, supporting a young driver competing in an Italian championships.
+							</p>
+
+							<p>
+								Music has been my constant companion since childhood. I started with <span class="font-semibold">classical guitar</span> at age 6, spending nearly a decade mastering traditional techniques and repertoire.
+								Now I focus on <span class="font-semibold">electric guitar</span>, exploring everything from jazz fusion to progressive rock.
+								There's something magical about the intersection of technical precision and creative expression that appeals to the same part of me drawn to both engineering and racing.
+							</p>
+
+							<p>
+								In the tech world, I'm particularly fascinated by <span class="font-semibold text-blue-400">virtualization and containerization technologies</span>.
+								My focus on <span class="font-semibold">open-source solutions</span> like <span class="font-semibold">KVM</span> and <span class="font-semibold">Docker</span> stems from both philosophical and practical reasons — 
+								I believe in transparent, auditable systems, especially when security is paramount.
+								Currently, I'm diving deep into orchestration platforms and exploring how to optimize system efficiency at scale.
+							</p>
+						</div>
+					</div>
+					
+					<div class="lg:flex-shrink-0 mt-12 lg:mt-0">
+						<Image src={Ava} alt="Filippo Ferrando" width={300} class="rounded-3xl rotate-3 mx-auto lg:mx-0 shadow-xl"/>
+					</div>
+				</section>
+			</article>
+		</main>
+	</div>
 </BaseLayout>

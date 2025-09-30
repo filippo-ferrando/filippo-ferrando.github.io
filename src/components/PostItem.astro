@@ -1,14 +1,20 @@
 ---
-import { slugify } from '../utils';
+import { slugify, calculateReadingTime } from '../utils';
 import FormattedDate from './FormattedDate.astro';
 import type { CollectionEntry } from 'astro:content';
 
 type BlogPost = CollectionEntry<'blog'>;
 const { post }: Record<string, any> | { post: BlogPost } = Astro.props
+
+// Calculate reading time from post content
+const readingTime = calculateReadingTime(post.body);
 ---
 <div class='flex flex-col sm:flex-row gap-2 sm:items-center  border-b py-2 mb-1 capitalize dark:border-b-zinc-700'>        
-  <div class='text-zinc-700 text-sm w-24 dark:text-zinc-300 shrink-0'>
+  <div class='text-zinc-700 text-sm w-32 dark:text-zinc-300 shrink-0 flex flex-col'>
     <FormattedDate date={post.data.pubDate} />
+    <span class='text-xs text-zinc-500 dark:text-zinc-400'>
+      {readingTime} min read
+    </span>
   </div>
   <h3 class='font-medium grow'>
     <a href={`/${post.slug}/`}>

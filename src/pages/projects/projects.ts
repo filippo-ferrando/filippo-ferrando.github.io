@@ -15,49 +15,56 @@ export const projects: Project[] = [
     ...(await getRepositoryDetails('filippo-ferrando/telegram-homelab-remote')),
     name: 'Telegram integration for my HomeLab',
     demoLink: 'https://github.com/filippo-ferrando/telegram-homelab-remote',
-    tags: ['Python', 'Telegram']
+    tags: ['Python', 'Telegram'],
+    description: 'Control your HomeLab via a Telegram bot'
   },
   {
     ...(await getRepositoryDetails('filippo-ferrando/smart_blockchain')),
     name: 'BPSC Smart Blockchain',
     demoLink: 'https://github.com/filippo-ferrando/smart_blockchain',
-    tags: ['Blockchain']
+    tags: ['Blockchain'],
+    description: 'A simple BPSC blockchain implementation in Python'
   },
   {
     ...(await getRepositoryDetails('filippo-ferrando/garbage-collector')),
     name: 'PoC: C Garbage Collector',
     demoLink: 'https://github.com/filippo-ferrando/garbage-collector',
-    tags: ['C']
+    tags: ['C'],
+    description: 'A garbage collector implemented in C'
   },
   {
     ...(await getRepositoryDetails('filippo-ferrando/image-steganography')),
-    name: 'Image steganography',
+    name: 'Image Steganography',
     demoLink: 'https://github.com/filippo-ferrando/image-steganography',
     demoLinkRel: 'nofollow noopener noreferrer',
-    tags: ['Python', 'Cryptography']
+    tags: ['Python', 'Cryptography'],
+    description: 'Image steganography implementation in Python'
   },
   {
     ...(await getRepositoryDetails('filippo-ferrando/RFID-raspberrypi-reader')),
-    name: 'RFID totem with Raspberry Pi',
+    name: 'RFID Totem with Raspberry Pi',
     demoLink: 'https://github.com/filippo-ferrando/RFID-raspberrypi-reader',
-    tags: ['Raspberry Pi', 'Python']
+    tags: ['Raspberry Pi', 'Python'],
+    description: 'Raspberry Pi RFID reader with Netsons database integration'
   },
   {
     ...(await getRepositoryDetails('chassis-squad/Chassis_Squad')),
     name: 'Indoor WiFi Positioning',
     demoLink: 'https://github.com/chassis-squad/Chassis_Squad',
     demoLinkRel: 'nofollow noopener noreferrer',
-    tags: ['Python', 'Arduino', 'OpenCV']
+    tags: ['Python', 'Arduino', 'OpenCV'],
+    description: 'Indoor WiFi Positioning System using Arduino and OpenCV'
   },
   {
     ...(await getRepositoryDetails('filippo-ferrando/quelli-silenziosi')),
-    name: 'Turin House guestbook',
+    name: 'Turin House Guestbook',
     demoLink: 'https://github.com/filippo-ferrando/quelli-silenziosi',
-    tags: ['Python', '1-nighter']
+    tags: ['Python', '1-nighter'],
+    description: 'A guestbook for my former house in Turin'
   },
   {
     ...(await getRepositoryDetails('filippo-ferrando/elixir')),
-    name: 'Elixir: autohealig script',
+    name: 'Elixir: Autohealing Script',
     demoLink: 'https://github.com/filippo-ferrando/elixir',
     tags: ['Python']
   },
@@ -65,6 +72,7 @@ export const projects: Project[] = [
     ...(await getRepositoryDetails('PCTO-OneTwoCode/src')),
     name: 'Math Bullet',
     demoLink: 'https://github.com/PCTO-OneTwoCode/src/wiki',
-    tags: ['OpenCV', 'Python']
+    tags: ['OpenCV', 'Python'],
+    description: 'A rehabilitation game to help people with multiple sclerosis improve math skills using OpenCV and Python'
   }  
 ]

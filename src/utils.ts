@@ -38,3 +38,29 @@ export const getRepositoryDetails = async (repositoryFullname: string) => {
 	const response = await repoDetails.json();
 	return response;
 };
+
+/**
+ * Calculate reading time based on word count
+ * @param text The text content to analyze
+ * @param wordsPerMinute Average reading speed (default: 225 words per minute)
+ * @returns Reading time in minutes
+ */
+export const calculateReadingTime = (text: string, wordsPerMinute: number = 225): number => {
+	// Remove HTML tags and markdown syntax
+	const cleanText = text
+		.replace(/<[^>]*>/g, '') // Remove HTML tags
+		.replace(/```[\s\S]*?```/g, '') // Remove code blocks
+		.replace(/`[^`]*`/g, '') // Remove inline code
+		.replace(/!\[.*?\]\(.*?\)/g, '') // Remove images
+		.replace(/\[.*?\]\(.*?\)/g, '') // Remove links
+		.replace(/[#*_~`]/g, '') // Remove markdown formatting
+		.replace(/\s+/g, ' ') // Normalize whitespace
+		.trim();
+
+	// Count words (split by whitespace and filter out empty strings)
+	const wordCount = cleanText.split(/\s+/).filter(word => word.length > 0).length;
+	
+	// Calculate reading time and round up to at least 1 minute
+	const readingTime = Math.ceil(wordCount / wordsPerMinute);
+	return Math.max(1, readingTime);
+};

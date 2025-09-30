@@ -333,6 +333,48 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"33/index.md": {
+	id: "33/index.md";
+  slug: "cfs-vs-sched-deadline";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"34/index.md": {
+	id: "34/index.md";
+  slug: "ecc-ram";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"35/index.md": {
+	id: "35/index.md";
+  slug: "hypervisors-types";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"36/index.md": {
+	id: "36/index.md";
+  slug: "first-mastodon";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"37/index.md": {
+	id: "37/index.md";
+  slug: "overview-on-docker";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"38/index.md": {
+	id: "38/index.md";
+  slug: "docker-devops-cicd";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "4/index.md": {
 	id: "4/index.md";
   slug: "endeavouros-after-3-years";
