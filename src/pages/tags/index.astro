@@ -13,7 +13,10 @@ interface Tag {
 
 function groupTagsByFirstLetter(tags: Tag[]) {
   const grouped = tags.reduce((acc, tag) => {
-    const firstLetter = tag.label[0].toUpperCase();
+    if (!tag.label || tag.label.length === 0) {
+      return acc;
+    }
+    const firstLetter = (tag.label?.[0] ?? '').toUpperCase();
     if (!acc[firstLetter]) {
       acc[firstLetter] = [];
     }
