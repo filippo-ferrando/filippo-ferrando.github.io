@@ -21,19 +21,19 @@ const { picSize } = Astro.props;
 			{ 'w-[90px] h-[90px]': picSize === 'lg' }
 		]}
 	>
-		<Image src={Ava} alt='Filippo Ferrando' />
+		<Image src={Ava} alt='Filippo Ferrando' width={90} height={90} format="webp" loading="lazy" />
 	</a>
 	<div>
 		<div>
 			<a
 				href='https://github.com/filippo-ferrando'
-				class='block font-bold text-inherit hover:text-[var(--link-color)]'
+				class='block font-bold text-inherit hover:text-gruvbox-aqua transition-colors'
 				target='_blank'
 				rel='noopener noreferrer'
 			>
 				Filippo Ferrando Damillano
 			</a>
 		</div>
-		<small class='avatar__subtitle'>CS Student</small>
+		<small class='avatar__subtitle text-gruvbox-fg3'>CS Student</small>
 	</div>
 </div>
