@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
+import { getCollection } from 'astro:content';
 import Prose from '../components/Prose.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
@@ -20,7 +20,6 @@ export async function getStaticPaths() {
 	}));
 }
 
-type Props = BlogPost;
 const post = Astro.props;
 const {
 	data: { title, seoTitle, description, coverImage, pubDate, updatedDate, tags }
@@ -57,7 +56,7 @@ const seoProps = {
 								{tags && tags.map((tag: string) => (
 									<a
 										href={`/tags/${slugify(tag)}`}
-										class='inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700 transition-colors duration-200'
+										class='inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gruvbox-bg2 text-gruvbox-fg2 hover:bg-gruvbox-bg3 hover:text-gruvbox-yellow transition-colors duration-200'
 										itemprop="keywords"
 									>
 										{tag}
@@ -65,7 +64,7 @@ const seoProps = {
 								))}
 							</div>
 							
-							<div class='flex flex-col sm:items-end gap-2 text-gray-600 dark:text-gray-400'>
+							<div class='flex flex-col sm:items-end gap-2 text-gruvbox-fg3'>
 								<time 
 									datetime={pubDate.toISOString()}
 									itemprop="datePublished"
@@ -73,11 +72,11 @@ const seoProps = {
 								>
 									{updatedDate ? (
 										<>
-											Updated on <strong><FormattedDate date={updatedDate} /></strong>
+											Updated on <strong class="text-gruvbox-fg2"><FormattedDate date={updatedDate} /></strong>
 										</>
 									) : (
 										<>
-											Published on <strong><FormattedDate date={pubDate} /></strong>
+											Published on <strong class="text-gruvbox-fg2"><FormattedDate date={pubDate} /></strong>
 										</>
 									)}
 								</time>
@@ -98,7 +97,8 @@ const seoProps = {
 						<div class='mb-8 overflow-hidden rounded-xl'>
 							<Image 
 								src={coverImage} 
-								alt={title} 
+								alt={title}
+								format="webp"
 								class='w-full h-auto' 
 								loading='eager'
 								itemprop="image"
@@ -158,34 +158,33 @@ const seoProps = {
 	</div>
 </BaseLayout>
 
-<script async is:inline>
-	const anchors = document.querySelectorAll('.prose h2[id], .prose h3[id]');
-	const links = document.querySelectorAll('nav.toc ul li a');
+<script>
+	const observeToc = () => {
+		const anchors = document.querySelectorAll<HTMLElement>('.prose h2[id], .prose h3[id]');
+		const links = document.querySelectorAll<HTMLElement>('nav.toc ul li a');
+		
+		if (!anchors.length || !links.length) return;
+		
+		const scrollTop = window.scrollY;
 
-	function observeToc() {
-		if (typeof anchors != 'undefined' && anchors != null && typeof links != 'undefined' && links != null) {
-			let scrollTop = window.scrollY;
-
-			// highlight the last scrolled-to: set everything inactive first
-			for (const link of links) {
-				link.classList.add('border-transparent', 'text-inherit');
-				link.classList.remove('bg-[var(--background-surface-color)]', 'border-[var(--soft-border-color)]', 'text-[var(--link-color)]');
-			}
-			// then iterate backwards, on the first match highlight it and break
-			for (var i = anchors.length - 1; i >= 0; i--) {
-				if (scrollTop > anchors[i].offsetTop - 80) {
-					links[i].classList.remove('border-transparent', 'text-inherit');
-					links[i].classList.add('bg-[var(--background-surface-color)]', 'border-[var(--soft-border-color)]', 'text-[var(--link-color)]');
-					break;
-				}
+		// Reset all links
+		links.forEach(link => {
+			link.classList.add('border-transparent', 'text-inherit');
+			link.classList.remove('bg-[var(--background-surface-color)]', 'border-[var(--soft-border-color)]', 'text-[var(--link-color)]');
+		});
+		
+		// Highlight active link
+		for (let i = anchors.length - 1; i >= 0; i--) {
+			const anchor = anchors[i];
+			const link = links[i];
+			if (anchor && link && scrollTop > anchor.offsetTop - 80) {
+				link.classList.remove('border-transparent', 'text-inherit');
+				link.classList.add('bg-[var(--background-surface-color)]', 'border-[var(--soft-border-color)]', 'text-[var(--link-color)]');
+				break;
 			}
 		}
-	}
+	};
 
-	window.addEventListener('scroll', (event) => {
-		observeToc(event);
-	});
-	window.addEventListener('hashchange', (event) => {
-		observeToc(event);
-	});
+	window.addEventListener('scroll', observeToc);
+	window.addEventListener('hashchange', observeToc);
 </script>

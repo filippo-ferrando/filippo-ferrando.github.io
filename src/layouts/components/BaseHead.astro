@@ -28,6 +28,8 @@ const ogImage = image.startsWith('http') ? image : new URL(image, SITE_URL).href
 <meta name='viewport' content='width=device-width,initial-scale=1' />
 <link rel='icon' href={Favicon.src} />
 <meta name='generator' content={Astro.generator} />
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<meta name='googlebot' content='index, follow' />
 
 <!-- Canonical URL -->
 <link rel='canonical' href={canonicalURL} />
@@ -39,8 +41,8 @@ const ogImage = image.startsWith('http') ? image : new URL(image, SITE_URL).href
 <meta name='author' content={author} />
 
 <!-- Theme Color -->
-<meta name='theme-color' content='#ffffff' media='(prefers-color-scheme: light)' />
-<meta name='theme-color' content='#0f172a' media='(prefers-color-scheme: dark)' />
+<meta name='theme-color' content='#282828' media='(prefers-color-scheme: light)' />
+<meta name='theme-color' content='#282828' media='(prefers-color-scheme: dark)' />
 
 <!-- Open Graph / Facebook -->
 <meta property='og:type' content={type} />
@@ -95,27 +97,16 @@ const ogImage = image.startsWith('http') ? image : new URL(image, SITE_URL).href
 <!-- Preload critical resources -->
 <link rel='preconnect' href='https://fonts.googleapis.com' />
 <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+<link rel='dns-prefetch' href='https://fonts.googleapis.com' />
 
-<!-- Modern font loading -->
+<!-- Modern font loading with display=swap for better performance -->
 <link 
   href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap' 
-  rel='stylesheet' 
+  rel='stylesheet'
+  media='print'
+  onload="this.media='all';this.onload=null;"
 />
 
 <!-- Performance hints -->
 <meta name='format-detection' content='telephone=no' />
-<meta name='color-scheme' content='light dark' />
-
-<!-- Open Graph / Facebook -->
-<meta property='og:type' content='website' />
-<meta property='og:url' content={Astro.url} />
-<meta property='og:title' content={title} />
-<meta property='og:description' content={description} />
-<meta property='og:image' content={new URL(image, Astro.url)} />
-
-<!-- Twitter -->
-<meta property='twitter:card' content='summary_large_image' />
-<meta property='twitter:url' content={Astro.url} />
-<meta property='twitter:title' content={title} />
-<meta property='twitter:description' content={description} />
-<meta property='twitter:image' content={new URL(image, Astro.url)} />
+<meta name='color-scheme' content='dark' />
