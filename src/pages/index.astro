@@ -37,7 +37,8 @@ const posts = (await getCollection('blog'))
 					alt="Filippo Ferrando Damillano" 
 					width={300} 
 					height={300}
-					loading="eager" 
+					loading="eager"
+					format="webp"
 					class="rounded-3xl rotate-2 hover:rotate-0 transition-transform duration-300 shadow-2xl"
 				/>
 			</div>
@@ -45,11 +46,11 @@ const posts = (await getCollection('blog'))
 
 		<main class="space-y-16">
 			<section class='animate-fade-in'>
-				<div class="flex justify-between items-center border-b border-gray-200 dark:border-zinc-700 pb-4 mb-8">
-					<h2 class="text-2xl font-bold">Recent Posts</h2>
+				<div class="flex justify-between items-center border-b border-gruvbox-bg3 pb-4 mb-8">
+					<h2 class="text-2xl font-bold text-gruvbox-yellow">Recent Posts</h2>
 					<a 
 						href="/posts/" 
-						class="inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium transition-colors"
+						class="inline-flex items-center gap-2 text-gruvbox-aqua hover:text-gruvbox-aqua/80 font-medium transition-colors"
 					>
 						All posts 
 						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -65,11 +66,11 @@ const posts = (await getCollection('blog'))
 			</section>
 
 			<section class='animate-fade-in'>
-				<div class="flex justify-between items-center border-b border-gray-200 dark:border-zinc-700 pb-4 mb-8">
-					<h2 class="text-2xl font-bold">Featured Projects</h2>
+				<div class="flex justify-between items-center border-b border-gruvbox-bg3 pb-4 mb-8">
+					<h2 class="text-2xl font-bold text-gruvbox-yellow">Featured Projects</h2>
 					<a 
 						href="/projects/" 
-						class="inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium transition-colors"
+						class="inline-flex items-center gap-2 text-gruvbox-aqua hover:text-gruvbox-aqua/80 font-medium transition-colors"
 					>
 						All projects
 						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

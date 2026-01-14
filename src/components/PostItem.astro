@@ -9,15 +9,15 @@ const { post }: Record<string, any> | { post: BlogPost } = Astro.props
 // Calculate reading time from post content
 const readingTime = calculateReadingTime(post.body);
 ---
-<div class='flex flex-col sm:flex-row gap-2 sm:items-center  border-b py-2 mb-1 capitalize dark:border-b-zinc-700'>        
-  <div class='text-zinc-700 text-sm w-32 dark:text-zinc-300 shrink-0 flex flex-col'>
+<div class='flex flex-col sm:flex-row gap-2 sm:items-center border-b py-2 mb-1 capitalize border-gruvbox-bg3'>        
+  <div class='text-gruvbox-fg3 text-sm w-32 shrink-0 flex flex-col'>
     <FormattedDate date={post.data.pubDate} />
-    <span class='text-xs text-zinc-500 dark:text-zinc-400'>
+    <span class='text-xs text-gruvbox-fg4'>
       {readingTime} min read
     </span>
   </div>
-  <h3 class='font-medium grow'>
-    <a href={`/${post.slug}/`}>
+  <h3 class='font-medium grow text-gruvbox-fg'>
+    <a href={`/${post.slug}/`} class="hover:text-gruvbox-yellow transition-colors">
       {post.data.title}
     </a>
   </h3>
@@ -25,10 +25,10 @@ const readingTime = calculateReadingTime(post.body);
     {
       (post.data.tags || [] )?.map((tag: string) => (
         <a
-          class='border border-zinc-300 dark:border-zinc-700 rounded-2xl
-          text-sm text-zinc-700 dark:text-zinc-300 no-underline px-2 py-0.5
+          class='border border-gruvbox-bg3 rounded-2xl
+          text-sm text-gruvbox-fg2 no-underline px-2 py-0.5
           transition-all duration-700
-          hover:border-zinc-700 dark:hover:border-zinc-300'
+          hover:border-gruvbox-aqua hover:text-gruvbox-aqua'
           href={`/tags/${slugify(tag)}`}>
           {tag}
         </a>
