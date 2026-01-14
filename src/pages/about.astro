@@ -1,55 +1,95 @@
 ---
-import { Image } from 'astro:assets';
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import Ava from '@/assets/img/ava.jpg';
+import { Image } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Ava from "@/assets/img/ava2.jpg";
 ---
 
 <BaseLayout
-	title="About Me"
-	description="Some information about Filippo Ferrando"
+  title="About Me"
+  description="Some information about Filippo Ferrando"
 >
-	<div class='container'>
-		<main class='prose prose-invert max-w-none'>
-			<article>
-				<!-- Hero Section -->
-				<section class='w-full lg:flex lg:items-start gap-16 mb-12'>
-					<div class="text-pretty leading-relaxed lg:flex-1 lg:max-w-2xl">
-						<h1 class="text-4xl md:text-5xl font-bold mb-8 text-gruvbox-yellow">Get to Know Me Better</h1>
-						<div class="text-xl space-y-5 text-gruvbox-fg">
-							<p>
-								Beyond my studies in Cybersecurity at Politecnico di Torino, I work with
-								<a href="https://elemento.cloud" target="_blank" rel="noopener noreferrer" class="underline font-semibold text-gruvbox-aqua hover:text-gruvbox-aqua/80 transition-colors">Elemento Cloud</a>
-								where we're <span class="font-semibold text-gruvbox-aqua">revolutionizing the cloud services industry</span>. 
-								It's fascinating to apply what I learn academically to real-world problems in distributed systems and infrastructure security.
-							</p>
+  <div class="container">
+    <main class="prose prose-invert max-w-none">
+      <article>
+        <!-- Hero Section -->
+        <section class="w-full lg:flex lg:items-start gap-16 mb-12">
+          <div class="text-pretty leading-relaxed lg:flex-1 lg:max-w-2xl">
+            <h1 class="text-4xl md:text-5xl font-bold mb-8 text-gruvbox-yellow">
+              Get to Know Me Better
+            </h1>
+            <div class="text-xl space-y-5 text-gruvbox-fg">
+              <p>
+                Beyond my studies in Cybersecurity at Politecnico di Torino, I
+                work with
+                <a
+                  href="https://elemento.cloud"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="underline font-semibold text-gruvbox-aqua hover:text-gruvbox-aqua/80 transition-colors"
+                  >Elemento Cloud</a
+                >
+                where we're <span class="font-semibold text-gruvbox-aqua"
+                  >revolutionizing the cloud services industry</span
+                >. It's fascinating to apply what I learn academically to
+                real-world problems in distributed systems and infrastructure
+                security.
+              </p>
 
-							<p>
-								My <span class="font-semibold text-gruvbox-orange">passion for karting</span> runs deep and has shaped much of who I am. 
-								What started as weekend fun evolved into serious mechanical knowledge about <span class="font-semibold">2-stroke engines</span> — from understanding combustion physics to advanced tuning techniques.
-								I've spent countless hours reading technical manuals, experimenting with setups, and getting my hands dirty.
-								These days, I channel this expertise as a <span class="font-semibold">mechanic for a racing team</span>, supporting a young driver competing in an Italian championships.
-							</p>
+              <p>
+                My <span class="font-semibold text-gruvbox-orange"
+                  >passion for karting</span
+                > runs deep and has shaped much of who I am. What started as weekend
+                fun evolved into serious mechanical knowledge about <span
+                  class="font-semibold">2-stroke engines</span
+                > — from understanding combustion physics to advanced tuning techniques.
+                I've spent countless hours reading technical manuals, experimenting
+                with setups, and getting my hands dirty. These days, I channel this
+                expertise as a <span class="font-semibold"
+                  >mechanic for a racing team</span
+                >, supporting a young driver competing in an Italian
+                championships.
+              </p>
 
-							<p>
-								Music has been my constant companion since childhood. I started with <span class="font-semibold">classical guitar</span> at age 6, spending nearly a decade mastering traditional techniques and repertoire.
-								Now I focus on <span class="font-semibold">electric guitar</span>, exploring everything from jazz fusion to progressive rock.
-								There's something magical about the intersection of technical precision and creative expression that appeals to the same part of me drawn to both engineering and racing.
-							</p>
+              <p>
+                Music has been my constant companion since childhood. I started
+                with <span class="font-semibold">classical guitar</span> at age 6,
+                spending nearly a decade mastering traditional techniques and repertoire.
+                Now I focus on <span class="font-semibold">electric guitar</span
+                >, exploring everything from jazz fusion to progressive rock.
+                There's something magical about the intersection of technical
+                precision and creative expression that appeals to the same part
+                of me drawn to both engineering and racing.
+              </p>
 
-							<p>
-								In the tech world, I'm particularly fascinated by <span class="font-semibold text-gruvbox-aqua">virtualization and containerization technologies</span>.
-								My focus on <span class="font-semibold">open-source solutions</span> like <span class="font-semibold">KVM</span> and <span class="font-semibold">Docker</span> stems from both philosophical and practical reasons — 
-								I believe in transparent, auditable systems, especially when security is paramount.
-								Currently, I'm diving deep into orchestration platforms and exploring how to optimize system efficiency at scale.
-							</p>
-						</div>
-					</div>
-					
-					<div class="lg:flex-shrink-0 mt-12 lg:mt-0">
-						<Image src={Ava} alt="Filippo Ferrando" width={300} height={300} format="webp" loading="eager" class="rounded-3xl rotate-3 mx-auto lg:mx-0 shadow-xl"/>
-					</div>
-				</section>
-			</article>
-		</main>
-	</div>
+              <p>
+                In the tech world, I'm particularly fascinated by <span
+                  class="font-semibold text-gruvbox-aqua"
+                  >virtualization and containerization technologies</span
+                >. My focus on <span class="font-semibold"
+                  >open-source solutions</span
+                > like <span class="font-semibold">KVM</span> and <span
+                  class="font-semibold">Docker</span
+                > stems from both philosophical and practical reasons — I believe
+                in transparent, auditable systems, especially when security is paramount.
+                Currently, I'm diving deep into orchestration platforms and exploring
+                how to optimize system efficiency at scale.
+              </p>
+            </div>
+          </div>
+
+          <div class="lg:flex-shrink-0 mt-12 lg:mt-0">
+            <Image
+              src={Ava}
+              alt="Filippo Ferrando"
+              width={300}
+              height={300}
+              format="webp"
+              loading="eager"
+              class="rounded-3xl rotate-3 mx-auto lg:mx-0 shadow-xl"
+            />
+          </div>
+        </section>
+      </article>
+    </main>
+  </div>
 </BaseLayout>
