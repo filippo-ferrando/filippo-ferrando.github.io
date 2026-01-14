@@ -59,7 +59,7 @@ export const DEFAULT_THEME = 'system' as const;
 export const ANALYTICS_ID = process.env.GTAG_MEASUREMENT_ID || undefined;
 
 // Contact information
-export const CONTACT_EMAIL = 'filippo.ferrando@example.com' as const;
+export const CONTACT_EMAIL = 'ferrandodfilippo@gmail.com' as const;
 
 // Feature flags
 export const FEATURES = {

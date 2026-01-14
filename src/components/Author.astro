@@ -1,39 +1,46 @@
 ---
-import { Image } from 'astro:assets';
-import Ava from '../assets/img/ava.jpg';
+import { Image } from "astro:assets";
+import Ava from "../assets/img/ava3.jpg";
 
-type PicSize = 'sm' | 'md' | 'lg';
+type PicSize = "sm" | "md" | "lg";
 interface Props {
-	picSize: PicSize;
+  picSize: PicSize;
 }
 const { picSize } = Astro.props;
 ---
 
-<div class='flex gap-4 items-center leading-tight not-prose'>
-	<a
-		href='https://github.com/filippo-ferrando'
-		target='_blank'
-		rel='noopener noreferrer'
-		class:list={[
-			'rounded-full overflow-hidden shrink-0',
-			{ 'w-12 h-12': picSize === 'sm' },
-			{ 'w-[70px] h-[70px]': picSize === 'md' },
-			{ 'w-[90px] h-[90px]': picSize === 'lg' }
-		]}
-	>
-		<Image src={Ava} alt='Filippo Ferrando' />
-	</a>
-	<div>
-		<div>
-			<a
-				href='https://github.com/filippo-ferrando'
-				class='block font-bold text-inherit hover:text-[var(--link-color)]'
-				target='_blank'
-				rel='noopener noreferrer'
-			>
-				Filippo Ferrando Damillano
-			</a>
-		</div>
-		<small class='avatar__subtitle'>CS Student</small>
-	</div>
+<div class="flex gap-4 items-center leading-tight not-prose">
+  <a
+    href="https://github.com/filippo-ferrando"
+    target="_blank"
+    rel="noopener noreferrer"
+    class:list={[
+      "rounded-full overflow-hidden shrink-0",
+      { "w-12 h-12": picSize === "sm" },
+      { "w-[70px] h-[70px]": picSize === "md" },
+      { "w-[90px] h-[90px]": picSize === "lg" },
+    ]}
+  >
+    <Image
+      src={Ava}
+      alt="Filippo Ferrando"
+      width={90}
+      height={90}
+      format="webp"
+      loading="lazy"
+    />
+  </a>
+  <div>
+    <div>
+      <a
+        href="https://github.com/filippo-ferrando"
+        class="block font-bold text-inherit hover:text-gruvbox-aqua transition-colors"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Filippo Ferrando Damillano
+      </a>
+    </div>
+    <small class="avatar__subtitle text-gruvbox-fg3">CS Student</small>
+  </div>
 </div>

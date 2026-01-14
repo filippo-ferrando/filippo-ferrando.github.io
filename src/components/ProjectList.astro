@@ -3,7 +3,6 @@ import { Image } from 'astro:assets';
 import type { Project } from '../pages/projects/projects';
 import { kFormatter } from '../utils';
 import GithubWhite from '../assets/img/github-mark-white.svg';
-import GithubBlack from '../assets/img/github-mark.svg';
 
 const { projects } = Astro.props
 
@@ -11,16 +10,16 @@ const { projects } = Astro.props
 <div class="grid grid-cols-12 gap-5">
   {
     projects.map((project: Project) => 
-      <div class="col-span-12 sm:col-span-6 lg:col-span-4 border dark:border-zinc-700 rounded-xl shadow-sm p-5">
+      <div class="col-span-12 sm:col-span-6 lg:col-span-4 border border-gruvbox-bg3 bg-gruvbox-bg1 rounded-xl shadow-sm p-5 hover:border-gruvbox-aqua transition-colors">
         <div class="flex justify-between items-center">
           <div class='flex gap-2'>
             {
               (project.tags || [] )?.map((tag: string) => (
                 <span
-                  class='border border-zinc-300 dark:border-zinc-700 rounded-2xl
-                    text-sm text-zinc-700 dark:text-zinc-300 no-underline px-2 py-0.5
+                  class='border border-gruvbox-bg3 rounded-2xl
+                    text-sm text-gruvbox-fg2 no-underline px-2 py-0.5
                     transition-all duration-700
-                  hover:border-zinc-700 dark:hover:border-zinc-300'
+                  hover:border-gruvbox-aqua hover:text-gruvbox-aqua'
                   >
                   {tag}
                 </span>
@@ -33,33 +32,33 @@ const { projects } = Astro.props
               <a
                 href={project.html_url}
                 target="_blank"
-                class='border border-zinc-300 dark:border-zinc-700 rounded-2xl
-                    text-xs text-zinc-700 dark:text-zinc-300 no-underline px-2 py-0.5
+                rel="noopener noreferrer"
+                class='border border-gruvbox-bg3 rounded-2xl
+                    text-xs text-gruvbox-fg2 no-underline px-2 py-0.5
                     transition-all duration-700
-                  hover:border-zinc-700 dark:hover:border-zinc-300
+                  hover:border-gruvbox-yellow hover:text-gruvbox-yellow
                     flex items-center gap-1
               '>
-                <Image src={GithubBlack} height={12} class='dark:hidden' alt='Github stars' />
-                <Image src={GithubWhite} height={12} class='hidden dark:block' alt='Github stars' />
+                <Image src={GithubWhite} height={12} alt='Github stars' loading="lazy" />
                 {kFormatter(project.stargazers_count)} stars
               </a>
             </div>
           )}
         </div>
-        <h3 class="font-semibold my-2">
-          <a class="underline" href={project.demoLink} target="_blank" rel={project.demoLinkRel}>{project.name}</a>
+        <h3 class="font-semibold my-2 text-gruvbox-fg">
+          <a class="underline text-gruvbox-yellow hover:text-gruvbox-yellow/80 transition-colors" href={project.demoLink} target="_blank" rel={project.demoLinkRel}>{project.name}</a>
         </h3>
-        <div class="line-clamp-2 text-zinc-600 dark:text-zinc-300 mb-4 min-h-[50px]">
+        <div class="line-clamp-2 text-gruvbox-fg2 mb-4 min-h-[50px]">
           <p>{project.description}</p>
         </div>
         <div class="flex justify-end gap-3">
           {
             project.postLink &&
-            <a class="underline flex items-center gap-2" href={project.postLink}>
+            <a class="underline flex items-center gap-2 text-gruvbox-aqua hover:text-gruvbox-aqua/80 transition-colors" href={project.postLink}>
               Article
             </a>
           }
-          <a class="underline flex items-center gap-2" href={project.demoLink} target="_blank" rel={project.demoLinkRel}>
+          <a class="underline flex items-center gap-2 text-gruvbox-aqua hover:text-gruvbox-aqua/80 transition-colors" href={project.demoLink} target="_blank" rel={project.demoLinkRel}>
             Repo
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
           </a>

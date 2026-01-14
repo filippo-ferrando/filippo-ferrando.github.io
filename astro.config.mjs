@@ -20,7 +20,7 @@ export default defineConfig({
   ],
   markdown: {
     shikiConfig: {
-      theme: 'github-dark-dimmed',
+      theme: 'monokai',
       wrap: true
     },
     rehypePlugins: [[autoNewTabExternalLinks, {
