@@ -20,7 +20,7 @@ export default defineConfig({
   ],
   markdown: {
     shikiConfig: {
-      theme: 'gruvbox-dark',
+      theme: 'monokai',
       wrap: true
     },
     rehypePlugins: [[autoNewTabExternalLinks, {
