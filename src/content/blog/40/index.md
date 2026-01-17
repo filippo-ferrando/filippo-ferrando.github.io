@@ -1,6 +1,6 @@
 ---
 title: "Homelabbing with Docker Swarm"
-slug: "homabbling-with-docker-swarm"
+slug: "homelabbing-with-docker-swarm"
 description: "Deploy services using Docker Swarm for a robust homelab setup."
 pubDate: "Jan 17 2026"
 tags: ["Selfhosted"]
@@ -83,4 +83,3 @@ One of the biggest downsides I’ve encountered is the difficulty of running loc
 Other than that, my experience with Docker Swarm has been very positive so far, and I plan to keep using it for my homelab... maybe with a different storage solution in the future.
 
 Stay tuned for more updates on my homelab journey!
-
