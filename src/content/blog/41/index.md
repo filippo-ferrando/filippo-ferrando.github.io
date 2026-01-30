@@ -1,7 +1,7 @@
 ---
-title: "Nimbus: file tranfer for poor connections"
+title: "Nimbus: file transfer for poor connections"
 slug: "nimbus-parallel-file-transfer"
-description: "Move files relialy over poor connections with SSH"
+description: "Move files reliably over poor connections with SSH"
 pubDate: "Jan 30 2026"
 tags: ["Bash", "Networking", "SSH", "File Transfer"]
 coverImage: "./post_img41.png"
