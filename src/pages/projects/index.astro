@@ -1,19 +1,25 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import ProjectList from '../../components/ProjectList.astro';
-import { projects } from './projects';
-
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectList from "../../components/ProjectList.astro";
+import { projects } from "./projects";
 ---
 
 <BaseLayout
-	title="All My Projects"
-	description="All my project portfolio from real projects to open source projects."
+  title="All My Projects"
+  description="All my project portfolio from real projects to open source projects."
 >
-  <div class='container'>
+  <div class="container">
     <div class="mb-10">
-      <h1 class="text-3xl font-bold mb-2 text-gruvbox-yellow">All My Projects</h1>
-      <p class="text-gruvbox-fg2 text-lg">These are the projects i work on in my free time</p>
+      <h1 class="text-3xl font-bold mb-2 text-gruvbox-yellow">
+        All My Projects
+      </h1>
+      <p class="text-gruvbox-fg2 text-lg">
+        These are the projects i work on in my free time
+      </p>
+      <p class="text-gruvbox-fg2 text-lg">
+        Feel free to take a look if you're interested
+      </p>
     </div>
-    <ProjectList projects={projects}/>
+    <ProjectList projects={projects} />
   </div>
 </BaseLayout>
