@@ -12,6 +12,13 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    ...(await getRepositoryDetails('filippo-ferrando/nimbus')),
+    name: 'Nimbus: multiplexed parallel file transfer',
+    demoLink: 'https://github.com/filippo-ferrando/nimbus',
+    tags: ['bash', 'transfer', 'cli'],
+    description: 'A CLI tool for multiplexed parallel file transfer over multiple tcp connections'
+  },
+  {
     ...(await getRepositoryDetails('filippo-ferrando/telegram-homelab-remote')),
     name: 'Telegram integration for my HomeLab',
     demoLink: 'https://github.com/filippo-ferrando/telegram-homelab-remote',
@@ -74,5 +81,5 @@ export const projects: Project[] = [
     demoLink: 'https://github.com/PCTO-OneTwoCode/src/wiki',
     tags: ['OpenCV', 'Python'],
     description: 'A rehabilitation game to help people with multiple sclerosis improve math skills using OpenCV and Python'
-  }  
+  }
 ]
