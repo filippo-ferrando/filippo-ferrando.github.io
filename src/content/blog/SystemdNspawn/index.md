@@ -42,11 +42,3 @@ sudo systemd-nspawn -bD /path/to/rootfs
 This command creates a new container and starts a new shell inside it. The `-b` flag tells systemd-nspawn to boot the container, while the `-D` flag specifies the path to the root file system of the container. The `rootfs` directory should contain the root file system of the operating system you want to run inside the container.
 
 You can exit the container by running the `exit` command. To start the container again, run the `systemd-nspawn` command with the same options as before.
-
-## Conclusion
-
-Systemd-nspawn is a lightweight containerization tool that provides a simple and secure environment for running applications. It is easy to use and does not require advanced knowledge of containerization. If you are looking for a lightweight and secure way to run applications on a Linux system, systemd-nspawn is worth considering.
-
-#### Authors
-
-- [@filippo-ferrando](https://www.github.com/filippo-ferrando)
