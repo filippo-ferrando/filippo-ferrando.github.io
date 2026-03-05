@@ -42,3 +42,8 @@ sudo systemd-nspawn -bD /path/to/rootfs
 This command creates a new container and starts a new shell inside it. The `-b` flag tells systemd-nspawn to boot the container, while the `-D` flag specifies the path to the root file system of the container. The `rootfs` directory should contain the root file system of the operating system you want to run inside the container.
 
 You can exit the container by running the `exit` command. To start the container again, run the `systemd-nspawn` command with the same options as before.
+
+## All great but why don't I just use Docker?
+
+Well this is actually a very good question. Docker is a popular containerization platform that provides a more comprehensive set of features than systemd-nspawn. However, systemd-nspawn can be a good choice for certain use cases, such as testing and development environments, or when you need a lightweight containerization solution without the overhead of Docker.
+I found myself using it also to spin up a quick container from a partition of my hard drive, which is something that Docker doesn't allow you to do. This is a great way to leverage a second operating system without the need to set up a full virtual machine (or rebooting).

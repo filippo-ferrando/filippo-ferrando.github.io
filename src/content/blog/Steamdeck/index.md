@@ -15,9 +15,9 @@ However, this device wasn't my first choice. Initially, I planned to buy and mod
 
 ## Gaming Experience
 
-I've always been a PC gamer, ever since I was a kid. I've rarely used controllers—my only experiences were with a PS2 rescued from a landfill and a relative's original Xbox. So, I felt a bit out of my element when I started playing titles that I was used to playing with a keyboard and mouse on a controller. However, I quickly adapted, thanks to the quality of the Steam Deck's controller.
+I've always been a PC gamer, ever since I was a kid. I've rarely used controllers, my only experiences were with a PS2 rescued from a landfill and a relative's original Xbox. So, I felt a bit out of my element when I started playing titles that i was used to playing with a keyboard and mouse on a controller. However, I quickly adapted, thanks to the SteamDeck great ergonomics.
 
-Steam's Big Picture interface is intuitive and easily customizable with the right plugins. It provides a clean view of your library and the store, although there are occasional minor issues. The only real downside I’ve noticed isn’t the console’s power or battery life—it’s the weight. During gaming sessions lasting 1-2 hours, it starts to take a toll on your wrists.
+Steam's Big Picture interface is intuitive and easily customizable with the right plugins. It provides a clean view of your library and the store, although there are occasional minor issues. The only real downside I’ve noticed isn’t the console’s power or battery life it’s the **weight**. During gaming sessions lasting 1-2 hours, it starts to take a toll on your wrists.
 
 ## Performance
 
@@ -38,3 +38,4 @@ SteamOS is an Arch-based but immutable distro, meaning you can’t install packa
 ## Conclusion
 
 That’s my personal experience with the Steam Deck. I’ve seen both positive and negative reviews about the device, and I’d say it’s a great compromise between a gaming laptop and a Nintendo Switch, but not much more than that. I wouldn’t replace my laptop or a more powerful home system with it. However, it’s an excellent addition if you want to take your games on the go or have a terminal available without carrying a full laptop around.
+
