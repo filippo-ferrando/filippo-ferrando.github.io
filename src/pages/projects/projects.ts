@@ -12,6 +12,13 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    ...(await getRepositoryDetails('filippo-ferrando/go-net-trace')),
+    name: 'go-net-trace: a Go + eBPF network traffic stats getter',
+    demoLink: 'https://github.com/filippo-ferrando/go-net-trace',
+    tags: ['Go', 'eBPF', 'networking'],
+    description: 'A Go script that uses eBPF to get network traffic stats for active processes on Linux'
+  },
+  {
     ...(await getRepositoryDetails('filippo-ferrando/nimbus')),
     name: 'Nimbus: multiplexed parallel file transfer',
     demoLink: 'https://github.com/filippo-ferrando/nimbus',
@@ -33,13 +40,6 @@ export const projects: Project[] = [
     description: 'A simple BPSC blockchain implementation in Python'
   },
   {
-    ...(await getRepositoryDetails('filippo-ferrando/garbage-collector')),
-    name: 'PoC: C Garbage Collector',
-    demoLink: 'https://github.com/filippo-ferrando/garbage-collector',
-    tags: ['C'],
-    description: 'A garbage collector implemented in C'
-  },
-  {
     ...(await getRepositoryDetails('filippo-ferrando/image-steganography')),
     name: 'Image Steganography',
     demoLink: 'https://github.com/filippo-ferrando/image-steganography',
@@ -54,32 +54,4 @@ export const projects: Project[] = [
     tags: ['Raspberry Pi', 'Python'],
     description: 'Raspberry Pi RFID reader with Netsons database integration'
   },
-  {
-    ...(await getRepositoryDetails('chassis-squad/Chassis_Squad')),
-    name: 'Indoor WiFi Positioning',
-    demoLink: 'https://github.com/chassis-squad/Chassis_Squad',
-    demoLinkRel: 'nofollow noopener noreferrer',
-    tags: ['Python', 'Arduino', 'OpenCV'],
-    description: 'Indoor WiFi Positioning System using Arduino and OpenCV'
-  },
-  {
-    ...(await getRepositoryDetails('filippo-ferrando/quelli-silenziosi')),
-    name: 'Turin House Guestbook',
-    demoLink: 'https://github.com/filippo-ferrando/quelli-silenziosi',
-    tags: ['Python', '1-nighter'],
-    description: 'A guestbook for my former house in Turin'
-  },
-  {
-    ...(await getRepositoryDetails('filippo-ferrando/elixir')),
-    name: 'Elixir: Autohealing Script',
-    demoLink: 'https://github.com/filippo-ferrando/elixir',
-    tags: ['Python']
-  },
-  {
-    ...(await getRepositoryDetails('PCTO-OneTwoCode/src')),
-    name: 'Math Bullet',
-    demoLink: 'https://github.com/PCTO-OneTwoCode/src/wiki',
-    tags: ['OpenCV', 'Python'],
-    description: 'A rehabilitation game to help people with multiple sclerosis improve math skills using OpenCV and Python'
-  }
 ]
