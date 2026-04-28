@@ -15,7 +15,7 @@ export const projects: Project[] = [
     ...(await getRepositoryDetails('filippo-ferrando/stasis')),
     name: 'stasis: a file operations logging system',
     demoLink: 'https://github.com/filippo-ferrando/stasis',
-    tags: ['python', 'distributed-systems', 'networking', 'blockchain'],
+    tags: ['python', 'networking', 'blockchain'],
     description: 'A distributed file operations logging system built on top of a custom blockchain implementation, designed to provide an immutable and tamper-proof record of file operations across a network of nodes.'
   },
   {
