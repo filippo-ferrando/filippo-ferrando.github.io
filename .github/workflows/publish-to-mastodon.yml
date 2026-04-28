@@ -8,89 +8,78 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
-    - name: Get commit message
-      id: get_commit_message
-      run: echo "::set-output name=message::$(git log -1 --pretty=%B)"
+      - name: Get commit message
+        id: get_commit_message
+        run: |
+          MSG=$(git log -1 --pretty=%B)
+          echo "message=$MSG" >> $GITHUB_OUTPUT
 
-    - name: Check if commit message contains "new post"
-      id: check_message
-      run: |
-        if [[ "${{ steps.get_commit_message.outputs.message }}" == *"new post"* ]]; then
-          echo "::set-output name=contains_new_post::true"
-        else
-          echo "::set-output name=contains_new_post::false"
-        fi
+      - name: Check if commit message contains "new post"
+        id: check_message
+        run: |
+          if [[ "${{ steps.get_commit_message.outputs.message }}" == *"new post"* ]]; then
+            echo "contains_new_post=true" >> $GITHUB_OUTPUT
+          else
+            echo "contains_new_post=false" >> $GITHUB_OUTPUT
+          fi
 
-    - name: Generate random phrase
-      id: generate_phrase
-      if: steps.check_message.outputs.contains_new_post == 'true'
-      run: |
-        phrases=(
-          "Check out my new post! 🚀",  
-          "I just published a new article! 📝",  
-          "New content available! 🎉",  
-          "Fresh post alert! 🔥",  
-          "Just dropped a new post! 👀",  
-          "Hot off the press! 📰",  
-          "My latest article is live! ✨",  
-          "Don't miss my new post! 📌",  
-          "Exciting new content just for you! 🎊",  
-          "Breaking: My latest blog is out now! 🏆",  
-          "A fresh read is waiting for you! 📖",  
-          "Something new just landed! 🚀",  
-          "Just hit publish! 🖊️",  
-          "Big news! New post is up! 📢",  
-          "New insights just for you! 💡",  
-          "Have you seen my latest post? 🤩",  
-          "Your next favorite read is here! 📚",  
-          "Get ready for something fresh! 🍃",  
-          "Straight from my thoughts to your screen! 💭",  
-          "Another gem just went live! 💎",  
-          "You won’t want to miss this one! 👌",  
-          "Guess what? New post alert! 🚨",  
-          "Diving deep in my latest article! 🌊",    
-          "Time for some fresh knowledge! 🧠",  
-          "New words, fresh ideas! 🌟",  
-          "Fuel your mind with my latest post! 🔥",  
-          "Read all about it! 🗞️")
-        random_phrase=${phrases[$RANDOM % ${#phrases[@]}]}
-        echo "::set-output name=phrase::$random_phrase"
+      - name: Generate random phrase
+        if: steps.check_message.outputs.contains_new_post == 'true'
+        id: generate_phrase
+        run: |
+          phrases=(
+            "Check out my new post! 🚀" "I just published a new article! 📝"
+            "New content available! 🎉" "Fresh post alert! 🔥"
+            "Just dropped a new post! 👀" "Hot off the press! 📰"
+            "My latest article is live! ✨" "Don't miss my new post! 📌"
+            "Exciting new content just for you! 🎊" "Breaking: My latest blog is out now! 🏆"
+            "A fresh read is waiting for you! 📖" "Something new just landed! 🚀"
+            "Just hit publish! 🖊️" "Big news! New post is up! 📢"
+            "New insights just for you! 💡" "Have you seen my latest post? 🤩"
+            "Your next favorite read is here! 📚" "Get ready for something fresh! 🍃"
+            "Straight from my thoughts to your screen! 💭" "Another gem just went live! 💎"
+            "You won’t want to miss this one! 👌" "Guess what? New post alert! 🚨"
+            "Diving deep in my latest article! 🌊" "Time for some fresh knowledge! 🧠"
+            "New words, fresh ideas! 🌟" "Fuel your mind with my latest post! 🔥"
+            "Read all about it! 🗞️")
+          random_phrase="${phrases[$RANDOM % ${#phrases[@]}]}"
+          echo "phrase=$random_phrase" >> $GITHUB_OUTPUT
 
-    - name: Get changed files
-      id: changed-files
-      if: steps.check_message.outputs.contains_new_post == 'true'
-      run: |
-        # Ottieni l'ultimo commit SHA
-        LAST_COMMIT_SHA=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          "https://api.github.com/repos/${{ github.repository }}/commits?per_page=1" | jq -r '.[0].sha')
+      - name: Get changed files
+        id: changed-files
+        if: steps.check_message.outputs.contains_new_post == 'true'
+        run: |
+          ARTICLE_FILE=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep -E '^src/content/blog/.*\.md$' | head -n 1)
 
-        # Ottieni i file modificati nell'ultimo commit
-        CHANGED_FILES=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          "https://api.github.com/repos/${{ github.repository }}/commits/$LAST_COMMIT_SHA" | jq -r '.files[].filename')
+          if [ -n "$ARTICLE_FILE" ]; then
+            SLUG=$(grep '^slug:' "$ARTICLE_FILE" | sed 's/slug: //;s/"//g;s/ //g')
+            echo "slug=$SLUG" >> $GITHUB_OUTPUT
+          else
+            echo "No article file found in src/content/blog/"
+            exit 1
+          fi
+        shell: bash
 
-        # Cerca un file Markdown nella directory src/content/blog/
-        ARTICLE_FILE=$(echo "$CHANGED_FILES" | grep -E '^src/content/blog/.*\.md$' | head -n 1)
+      - name: Publish to Mastodon
+        if: steps.check_message.outputs.contains_new_post == 'true'
+        env:
+          MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+          MASTODON_INSTANCE: ${{ secrets.MASTODON_INSTANCE }}
+        run: |
+          ARTICLE_URL="https://filippo-ferrando.github.io/${{ steps.changed-files.outputs.slug }}"
+          MESSAGE="${{ steps.generate_phrase.outputs.phrase }}
 
-        if [ -n "$ARTICLE_FILE" ]; then
-          SLUG=$(grep '^slug:' "$ARTICLE_FILE" | sed -n 's/^slug: "\([^"]*\)"$/\1/p')
-          echo "::set-output name=slug::$SLUG"
-        else
-          echo "No article file found"
-          exit 1
-        fi
-      shell: bash
+          ${ARTICLE_URL}"
 
-    - name: Publish to Mastodon
-      if: steps.check_message.outputs.contains_new_post == 'true'
-      env:
-        MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
-        MASTODON_INSTANCE: ${{ secrets.MASTODON_INSTANCE }}
-      run: |
-        article_url="https://filippo-ferrando.github.io/${{ steps.changed-files.outputs.SLUG }}"
-        message="${{ steps.generate_phrase.outputs.phrase }} %0A%0A ${article_url}"
-        curl -X POST -H "Authorization: Bearer $MASTODON_ACCESS_TOKEN" -F "status=$message" "https://$MASTODON_INSTANCE/api/v1/statuses"
+          curl -X POST "https://$MASTODON_INSTANCE/api/v1/statuses" \
+            -H "Authorization: Bearer $MASTODON_ACCESS_TOKEN" \
+            -F "status=$MESSAGE"
