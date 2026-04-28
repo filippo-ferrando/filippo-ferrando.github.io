@@ -30,7 +30,7 @@ Nodes can discover each other using a UDP discovery protocol, and they communica
 ### The architecture
 
 <p align="center">
-  <img src="../../../assets/img/stasis_architecture.svg" alt="stasis architecture" style="width: 70%; height: auto; margin: 20px 0;" />
+  <img src="https://raw.githubusercontent.com/filippo-ferrando/filippo-ferrando.github.io/c4348c6cd4002269c6031bcedb222aa5937f7f74/src/assets/img/stasis_architecture.svg" alt="stasis architecture" style="width: 70%; height: auto; margin: 20px 0;" />
 </p>
 
 1. The **Watchdog**: Filesystem Observation & Smart Hashing
